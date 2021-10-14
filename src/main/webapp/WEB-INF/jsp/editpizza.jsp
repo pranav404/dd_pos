@@ -1,3 +1,6 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -37,45 +40,54 @@
 				href="index.jsp">Logout</a>
 		</div>
 	</div>
-	<form method="POST" action="/poa/editpizza">
+	<form:form method="POST" action="/dd_pos/saveeditpizza" modelAttribute="editStore">
 		<table cellspacing="20" cellpadding="20" border="3"
 			style="border-collapse: collapse" height="600">
 
 			<tr align="center">
-				<td><a href="Adddelpizza.jsp">Add/Delete pizza details</a></td>
+				<td><a href="Adddelpizza">Add/Delete pizza details</a></td>
 				<td rowspan=6 width="650">
 					<h3>Edit Food Item</h3>
 
 					<table>
-						<tr>
-							<td></td>
-							<td><hidden path="foodID" /></td>
-						</tr>
+					<tr>  
+        			<td></td>    
+         			<td><form:hidden  path="storeID" /></td>  
+         			</tr>
 						<tr>
 							<td>Name :</td>
-							<td><input path="Name" /></td>
+							<td><form:input path="Name" /></td>
 						</tr>
 						<tr>
-							<td>Order Quantity :</td>
-							<td><input path="Quantity" /></td>
+							<td>Street :</td>
+							<td><form:input path="Street" /></td>
 						</tr>
 						<tr>
-						<tr>
-							<td>Food Size :</td>
-							<td><input path="FoodSize" /></td>
+							<td>MobileNo :</td>
+							<td><form:input path="mobileNo" /></td>
 						</tr>
 						<tr>
-							<td>Price :</td>
-							<td><input path="price" /></td>
+							<td>City :</td>
+							<td><form:input path="City" /></td>
 						</tr>
-
+						<tr>
+							<td>State :</td>
+							<td><form:input path="State" /></td>
+						</tr>
+						<tr>
+							<td>Pincode :</td>
+							<td><form:input path="Pincode" /></td>
+						</tr>
 						<tr>
 							<td></td>
-							<td><input type="submit" value="Edit Save" /></td>
+							<td><input type="submit" value="Save" /></td>
 						</tr>
-					</table> <br />
+					</table>
+					</td>
+					
+					</form:form>
 			</tr>
-			</br>
+			
 			<tr>
 				<td><a href="viewmodpizza.jsp">View/Modify pizza details</a></td>
 			</tr>

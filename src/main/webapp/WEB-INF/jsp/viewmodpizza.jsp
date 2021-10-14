@@ -1,3 +1,5 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -41,7 +43,7 @@
 				href="index.jsp">Logout</a>
 		</div>
 	</div>
-<form method="post" action="viewpizza">    
+
 	<table cellspacing="20" cellpadding="20" border="3"
 		style="border-collapse: collapse" height="600">
 
@@ -50,23 +52,25 @@
 			<td rowspan=6 width="650"><h3>View/Modify pizza details</h3>
 				<table border="2" width="70%" cellpadding="2">
 					<tr>
-						<th>Food Id</th>
+						<th>Store ID</th>
 						<th>Name</th>
-						<th>Type</th>
-						<th>Food Size</th>
-						<th>Order Quantity</th>
-						<th>Price</th>
+						<th>Street</th>
+						<th>Mobile No</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Pincode</th>
 						<th>Edit</th>
 					</tr>
 					<c:forEach var="pizza" items="${list}">
 						<tr>
-							<td>${pizza.foodID}</td>
-							<td>${pizza.Name}</td>
-							<td>${pizza.Type}</td>
-							<td>${pizza.Quantity}</td>
-							<td>${pizza.FoodSize}</td>
-							<td>${pizza.price}</td>
-							<td><a href="editpizza/${pizza.foodID}">Edit</a></td>
+							<td>${pizza.storeID }
+							<td>${pizza.name }</td>
+							<td>${pizza.street }</td>
+							<td>${pizza.mobileNo}</td>
+							<td>${pizza.city}</td>
+							<td>${pizza.state }</td>
+							<td>${pizza.pincode}</td>
+							<td><a href="editpizza/${pizza.storeID}">Edit</a></td>
 						</tr>
 					</c:forEach>
 				</table> <br />
