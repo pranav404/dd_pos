@@ -173,7 +173,59 @@ public class controller {
 	}
 	
 	
-	
+	//Adding or deleting food details
+		@RequestMapping("/Adddelfood")
+		public String adddelfood(Model model) {
+			food foodservice = new food();
+			List<FoodBean> foodList = foodservice.listFood(db);
+			model.addAttribute("list", foodList);
+			return "Adddelfood";
+		}
+		//food form
+		@RequestMapping("/foodform")
+		public String foodform(Model model) {
+			FoodBean sb = new FoodBean();
+			model.addAttribute("foodbean", sb);
+			return "foodform";
+		}
+		//Add food
+		@RequestMapping("/addfood")
+		public String addfooddet(@ModelAttribute("foodbean") FoodBean sb) {
+			food foodservice = new food();
+			foodservice.addFood(sb, db);
+			return "redirect:Adddelfood";
+		}
+		//viewmodifyfood
+		@RequestMapping("/viewmodfood")
+		public String viewmodifyfood(Model model) {
+			food foodservice = new food();
+			List<FoodBean> foodList = foodservice.listFood(db);
+			model.addAttribute("list", foodList);
+			return "viewmodfood";
+		}
+		//editfood
+		@RequestMapping(value="/editfood/{Foodid}")
+		public String editfood(Model model,@PathVariable String Foodid) {
+			FoodBean sb = new FoodBean();
+			sb.setFoodid(Foodid);
+			model.addAttribute("editfood", sb);
+			return "editfood";
+		}
+		
+		//save edited food
+		@RequestMapping("/saveeditfood")
+		public String saveedit(@ModelAttribute("editfood") FoodBean sb) {
+			food foodservice = new food();
+			foodservice.editfood(sb, db);
+			return "redirect:viewmodfood";
+		}
+		//delete food
+		@RequestMapping("/deletefood/{Foodid}")
+		public String deletefood(@PathVariable String Foodid) {
+			food foodservices = new food();
+			foodservices.deletefood(Foodid, db);
+			return "redirect:/Adddelfood";
+		}
 	
 	//Customer part--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/CustAddfood")
