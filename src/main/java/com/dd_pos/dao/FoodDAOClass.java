@@ -20,11 +20,11 @@ public class FoodDAOClass {
 	    return template.update(sql);    
 	}     
 	 public int delete(String Foodid){    
-	    String sql="delete from POS_TBL_Food where id='"+Foodid+"'";    
+	    String sql="delete from POS_TBL_Food where foodid='"+Foodid+"'";    
 	    return template.update(sql);    
 	}    
 	public int update(FoodBean p){    
-	    String sql="update POS_TBL_Food set StoreID='"+p.getFoodid()+"',Name='"+p.getName()+"',Type='"+p.getType()+"',Foodsize='"+p.getFoodsize()+"',Quantity='"+p.getQuantity()+"',Price='"+p.getPrice()+"' where Foodid = '"+p.getFoodid()+"'";    
+	    String sql="update POS_TBL_Food set foodid='"+p.getFoodid()+"',Name='"+p.getName()+"',Type='"+p.getType()+"',Foodsize='"+p.getFoodsize()+"',Quantity='"+p.getQuantity()+"',Price='"+p.getPrice()+"' where Foodid = '"+p.getFoodid()+"'";    
 	    return template.update(sql);    
 	}
 	public FoodBean getOrderById(String Foodid){    

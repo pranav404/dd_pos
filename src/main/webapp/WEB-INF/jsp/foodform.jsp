@@ -1,5 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html>
+<head>
 <style>
 .topnav {
 	overflow: hidden;
@@ -28,35 +30,39 @@
 <body>
 
 	<div class="topnav">
-		<a href="Aboutus.jsp">About us</a> <a href="Contactus.jsp">Contact
+		<a href="Aboutus">About us</a> <a href="Contactus">Contact
 			us</a>
 		<div class="topnav-right">
-			<a class="active" href="Admin.jsp">Home</a> <a class="active"
-				href="index.jsp">Logout</a>
+			<a class="active" href="Admin">Home</a> <a class="active"
+				href="index">Logout</a>
 		</div>
 	</div>
-<form method="post" action="addfooditem">
+<form:form method="post" action="addfooditem" modelAttribute="foodbean">
 	<table cellspacing="20" cellpadding="20" border="3"
 		style="border-collapse: collapse" height="600">
 		<tr>
-			<td><a href="Adddelpizza.jsp">Add/Delete pizza details</a></td>
+			<td><a href="Adddelpizza">Add/Delete pizza details</a></td>
 			<td rowspan=6 width="650" align="center"><h3>Add New Food Item</h3>
 			<table>
 				<tr>
 					<td>Name :</td>
-					<td><input path="name" /></td>
+					<td><form:input path="Name" /></td>
+				</tr>
+				<tr>
+					<td>Food Type :</td>
+					<td><form:input path="Type" /></td>
 				</tr>
 				<tr>
 					<td>Food Size :</td>
-					<td><input path="FoodSize" /></td>
+					<td><form:input path="Foodsize" /></td>
 				</tr>
 				<tr>
 					<td>Order Quantity :</td>
-					<td><input path="Quantity" /></td>
+					<td><form:input path="Quantity" /></td>
 				</tr>
 				<tr>
 					<td>Price :</td>
-					<td><input path="price" /></td>
+					<td><form:input path="price" /></td>
 				</tr>
 
 				<tr>
@@ -64,24 +70,27 @@
 					<td><input type="submit" value="Save" /></td>
 				</tr>
 			</table>
+			</td>
+			</form:form>
+			<table>
 		<tr>
-			<td><a href="viewmodpizza.jsp">View/Modify pizza details</a></td>
+			<td><a href="viewmodpizza">View/Modify pizza details</a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="Adddelfood.jsp">Add/Delete food details </a></td>
+			<td><a href="Adddelfood">Add/Delete food details </a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="viewmodfood.jsp">View/Modify food details</a></td>
+			<td><a href="viewmodfood">View/Modify food details</a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="orderstatus.jsp">Change order status</a></td>
+			<td><a href="orderstatus">Change order status</a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="changepassword.jsp">Change Password</a></td>
+			<td><a href="changepassword">Change Password</a></td>
 		</tr>
 		</br>
 
@@ -89,4 +98,4 @@
 	</table>
 </body>
 </html>
-</form>
+

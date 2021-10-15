@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;    
 import org.springframework.web.bind.annotation.RequestMapping;    
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.dd_pos.bean.CredentialsBean;
 import com.dd_pos.bean.FoodBean;
 import com.dd_pos.bean.ProfileBean;
@@ -19,6 +20,11 @@ import com.dd_pos.bean.StoreBean;
 import com.dd_pos.dao.CredentialsDAOClass;
 import com.dd_pos.service.food;
 import com.dd_pos.service.store;
+
+import com.dd_pos.bean.*;
+import com.dd_pos.dao.*;
+import com.dd_pos.service.*;
+
 import com.dd_pos.util.*;
 
 @Controller
@@ -173,68 +179,85 @@ public class controller {
 		storeservices.deletestore(storeID, db);
 		return "redirect:/Adddelpizza";
 	}
+	//Adding or deleting food details
+	@RequestMapping("/Adddelfood")
+	public String adddelfood(Model model) {
+		food foodservice = new food();
+		List<FoodBean> foodList = foodservice.listFood(db);
+		model.addAttribute("list", foodList);
+		return "Adddelfood";
+	}
+	//food form
+	@RequestMapping("/foodform")
+	public String foodform(Model model) {
+		FoodBean fb = new FoodBean();
+		model.addAttribute("foodbean", fb);
+		return "foodform";
+	}
+	//Add food
+	@RequestMapping("/addfooditem")
+	public String addfooddet(@ModelAttribute("foodbean") FoodBean fb) {
+		food foodservice = new food();
+		foodservice.addFood(fb, db);
+		return "redirect:Adddelfood";
+	}
+	//viewmodifyfood
+	@RequestMapping("/viewmodfood")
+	public String viewmodifyfood(Model model) {
+		food foodservice = new food();
+		List<FoodBean> foodList = foodservice.listFood(db);
+		model.addAttribute("list", foodList);
+		return "viewmodfood";
+	}
+	//editfood
+	@RequestMapping(value="/editfood/{Foodid}")
+	public String editfood(Model model,@PathVariable String Foodid) {
+		FoodBean sb = new FoodBean();
+		sb.setFoodid(Foodid);
+		model.addAttribute("editfood", sb);
+		return "editfood";
+	}
+	
+	//save edited food
+	@RequestMapping("/saveeditfood")
+	public String saveedit(@ModelAttribute("editfood") FoodBean sb) {
+		food foodservice = new food();
+		foodservice.editfood(sb, db);
+		return "redirect:viewmodfood";
+	}
+	//delete food
+	@RequestMapping("/deletefood/{Foodid}")
+	public String deletefood(@PathVariable String Foodid) {
+		food foodservices = new food();
+		foodservices.deletefood(Foodid, db);
+		return "redirect:/Adddelfood";
+	}
 	
 	
 	
 	
 	//Customer part--------------------------------------------------------------------------------------------------------------
+	//add fooditems to cart
 	@RequestMapping("/CustAddfood")
-	public String customerAddFood() {
-		return "CustAddFood";
+	public String customerAddFood(@ModelAttribute("foodbean") FoodBean fb) {
+		custFood foodadd = new custFood();
+		foodadd.addFood(fb, db);
+		return "custAddFood";
 	}
-	//Adding or deleting food details
-			@RequestMapping("/Adddelfood")
-			public String adddelfood(Model model) {
-				food foodservice = new food();
-				List<FoodBean> foodList = foodservice.listFood(db);
-				model.addAttribute("list", foodList);
-				return "Adddelfood";
-			}
-			//food form
-			@RequestMapping("/foodform")
-			public String foodform(Model model) {
-				FoodBean sb = new FoodBean();
-				model.addAttribute("foodbean", sb);
-				return "foodform";
-			}
-			//Add food
-			@RequestMapping("/addfood")
-			public String addfooddet(@ModelAttribute("foodbean") FoodBean sb) {
-				food foodservice = new food();
-				foodservice.addFood(sb, db);
-				return "redirect:Adddelfood";
-			}
-			//viewmodifyfood
-			@RequestMapping("/viewmodfood")
-			public String viewmodifyfood(Model model) {
-				food foodservice = new food();
-				List<FoodBean> foodList = foodservice.listFood(db);
-				model.addAttribute("list", foodList);
-				return "viewmodfood";
-			}
-			//editfood
-			@RequestMapping(value="/editfood/{Foodid}")
-			public String editfood(Model model,@PathVariable String Foodid) {
-				FoodBean sb = new FoodBean();
-				sb.setFoodid(Foodid);
-				model.addAttribute("editfood", sb);
-				return "editfood";
-			}
-			
-			//save edited food
-			@RequestMapping("/saveeditfood")
-			public String saveedit(@ModelAttribute("editfood") FoodBean sb) {
-				food foodservice = new food();
-				foodservice.editfood(sb, db);
-				return "redirect:viewmodfood";
-			}
-			//delete food
-			@RequestMapping("/deletefood/{Foodid}")
-			public String deletefood(@PathVariable String Foodid) {
-				food foodservices = new food();
-				foodservices.deletefood(Foodid, db);
-				return "redirect:/Adddelfood";
-			}
+
+	
+
+	//view fooditems in cart
+	@RequestMapping("/viewcartitems")
+	public String ViewCartItems(Model model) 
+	{
+		custFood f = new custFood();
+		List<FoodBean> foodlist = f.listFood(db);
+		model.addAttribute("list", foodlist);
+		return "ViewCartItems";
+	}
+	
+
 	
 	
 	

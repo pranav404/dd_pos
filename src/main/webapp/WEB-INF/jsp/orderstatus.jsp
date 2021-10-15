@@ -40,8 +40,7 @@
 			<a class="active" href="Admin.jsp">Home</a> <a class="active"
 				href="index.jsp">Logout</a>
 		</div>
-	</div>
-<form method="post" action="orderstatus">    
+	</div>  
 	<table cellspacing="20" cellpadding="20" border="3"
 		style="border-collapse: collapse" height="600">
 
@@ -83,23 +82,23 @@
 		</tr>
 		</br>
 		<tr>
-			<td><a href="viewmodpizza.jsp">View/Modify pizza details</a></td>
+			<td><a href="viewmodpizza">View/Modify pizza details</a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="Adddelfood.jsp">Add/Delete food details </a></td>
+			<td><a href="Adddelfood">Add/Delete food details </a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="viewmodfood.jsp">View/Modify food details</a></td>
+			<td><a href="viewmodfood">View/Modify food details</a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="orderstatus.jsp">Change order status</a></td>
+			<td><a href="orderstatus">Change order status</a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="changepassword.jsp">Change Password</a></td>
+			<td><a href="changepassword">Change Password</a></td>
 		</tr>
 		</br>
 

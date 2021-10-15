@@ -1,3 +1,5 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -34,11 +36,11 @@
 <body>
 
 	<div class="topnav">
-		<a href="Aboutus.jsp">About us</a> <a href="Contactus.jsp">Contact
+		<a href="Aboutus">About us</a> <a href="Contactus.jsp">Contact
 			us</a>
 		<div class="topnav-right">
 			<a class="active" href="Admin.jsp">Home</a> <a class="active"
-				href="index.jsp">Logout</a>
+				href="index">Logout</a>
 		</div>
 	</div>
 <form method="post" action="adddelfooditem"> 
@@ -46,7 +48,7 @@
 		style="border-collapse: collapse" height="600">
 
 		<tr>
-			<td><a href="Adddelpizza.jsp">Add/Delete pizza details</a></td>
+			<td><a href="Adddelpizza">Add/Delete pizza details</a></td>
 			<td rowspan=6 width="650">
 						<table cellpadding="10" cellspacing="8" bgcolor="white" align="center">
 			<tr>
@@ -66,23 +68,23 @@
 				</tr>
 		</br>
 		<tr>
-			<td><a href="viewmodpizza.jsp">View/Modify pizza details</a></td>
+			<td><a href="viewmodpizza">View/Modify pizza details</a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="Adddelfood.jsp">Add/Delete food details </a></td>
+			<td><a href="Adddelfood">Add/Delete food details </a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="viewmodfood.jsp">View/Modify food details</a></td>
+			<td><a href="viewmodfood">View/Modify food details</a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="orderstatus.jsp">Change order status</a></td>
+			<td><a href="orderstatus">Change order status</a></td>
 		</tr>
 		</br>
 		<tr>
-			<td><a href="changepassword.jsp">Change Password</a></td>
+			<td><a href="changepassword">Change Password</a></td>
 		</tr>
 		</br>
 
