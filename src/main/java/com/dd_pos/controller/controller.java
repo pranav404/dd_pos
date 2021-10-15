@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;    
 import org.springframework.web.bind.annotation.RequestMapping;    
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.dd_pos.bean.CredentialsBean;
-import com.dd_pos.bean.ProfileBean;
-import com.dd_pos.bean.StoreBean;
-import com.dd_pos.dao.CredentialsDAOClass;
-import com.dd_pos.service.store;
+import com.dd_pos.bean.*;
+import com.dd_pos.dao.*;
+import com.dd_pos.service.*;
 import com.dd_pos.util.*;
 
 @Controller
@@ -228,10 +226,23 @@ public class controller {
 		}
 	
 	//Customer part--------------------------------------------------------------------------------------------------------------
+	//add fooditems to cart
 	@RequestMapping("/CustAddfood")
-	public String customerAddFood() {
-		return "CustAddFood";
+	public String customerAddFood(@ModelAttribute("foodbean") FoodBean fb) {
+		custFood foodadd = new custFood();
+		foodadd.addFood(fb, db);
+		return "custAddFood";
 	}
+	//view fooditems in cart
+	@RequestMapping("/viewcartitems")
+	public String ViewCartItems(Model model) 
+	{
+		custFood f = new custFood();
+		List<FoodBean> foodlist = f.listFood(db);
+		model.addAttribute("list", foodlist);
+		return "ViewCartItems";
+	}
+	
 	
 	
 	
