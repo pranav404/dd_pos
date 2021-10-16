@@ -76,6 +76,10 @@ public class controller {
 	public String logout() {
 		return "index";
 	}
+	@RequestMapping("/index")
+	public String index() {
+		return "index";
+	}
 	
 	//Getting Details From the New User
 	@RequestMapping("/save")
@@ -177,7 +181,7 @@ public class controller {
 	public String deletepizza(@PathVariable String storeID) {
 		store storeservices = new store();
 		storeservices.deletestore(storeID, db);
-		return "redirect:/Adddelpizza";
+		return "redirect:Adddelpizza";
 	}
 	//Adding or deleting food details
 	@RequestMapping("/Adddelfood")
@@ -239,10 +243,9 @@ public class controller {
 	//Customer part--------------------------------------------------------------------------------------------------------------
 	//add fooditems to cart
 	@RequestMapping("/CustAddfood")
-	public String customerAddFood(@ModelAttribute("foodbean") FoodBean fb) {
-		custFood foodadd = new custFood();
-		foodadd.addFood(fb, db);
-		return "custAddFood";
+	public String customerAddFood(Model model) {
+		
+		return "CustAddFood";
 	}
 
 	

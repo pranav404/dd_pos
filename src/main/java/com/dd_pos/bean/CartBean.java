@@ -2,7 +2,7 @@ package com.dd_pos.bean;
 import java.util.Date;
 public class CartBean {
 	
-	private int cartID;
+	private String cartID;
 	private String userID;
 	private String foodID;
 	private String Type;
@@ -10,10 +10,10 @@ public class CartBean {
 	private double Cost;
 	private Date orderDate;
 	
-	public int getCartID() {
+	public String getCartID() {
 		return cartID;
 	}
-	public void setCartID(int cartID) {
+	public void setCartID(String cartID) {
 		this.cartID = cartID;
 	}
 	public String getUserID() {

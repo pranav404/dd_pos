@@ -35,8 +35,8 @@
 		<a href="Aboutus">About us</a> <a href="Contactus">Contact
 			us</a>
 		<div class="topnav-right">
-			<a class="active" href="Admin.jsp">Home</a> <a class="active"
-				href="index.jsp">Logout</a>
+			<a class="active" href="Admin">Home</a> <a class="active"
+				href="index">Logout</a>
 		</div>
 	</div>
 	<form:form method="POST" action="/dd_pos/saveeditfood" modelAttribute="editfood">
@@ -44,7 +44,7 @@
 			style="border-collapse: collapse" height="600">
 
 			<tr align="center">
-				<td><a href="Adddelpizza">Add/Delete pizza details</a></td>
+				<td><a href="/dd_pos/Adddelpizza">Add/Delete pizza details</a></td>
 				<td rowspan=6 width="650">
 					<h3>Edit Food Item</h3>
 
@@ -84,23 +84,23 @@
 			</tr>
 			</br>
 			<tr>
-				<td><a href="viewmodpizza">View/Modify pizza details</a></td>
+				<td><a href="/dd_pos/viewmodpizza">View/Modify pizza details</a></td>
 			</tr>
 			</br>
 			<tr>
-				<td><a href="Adddelfood">Add/Delete food details </a></td>
+				<td><a href="/dd_pos/Adddelfood">Add/Delete food details </a></td>
 			</tr>
 			</br>
 			<tr>
-				<td><a href="viewmodfood">View/Modify food details</a></td>
+				<td><a href="/dd_pos/viewmodfood">View/Modify food details</a></td>
 			</tr>
 			</br>
 			<tr>
-				<td><a href="orderstatus">Change order status</a></td>
+				<td><a href="/dd_pos/orderstatus">Change order status</a></td>
 			</tr>
 			</br>
 			<tr>
-				<td><a href="changepassword">Change Password</a></td>
+				<td><a href="/dd_pos/changepassword">Change Password</a></td>
 			</tr>
 			</br>
 

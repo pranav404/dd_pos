@@ -36,7 +36,7 @@ public List<CartBean> getCart(){
     return template.query("select * from pos_tbl_cart ",new RowMapper<CartBean>(){    
         public CartBean mapRow(ResultSet rs, int row) throws SQLException {    
 	CartBean e=new CartBean();    
-            e.setCartID(rs.getInt(1));    
+            e.setCartID(rs.getString(1));    
             e.setUserID(rs.getString(2));    
             e.setFoodID(rs.getString(3));    
             e.setType(rs.getString(4));   

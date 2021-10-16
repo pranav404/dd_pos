@@ -56,6 +56,9 @@
 <td>
   <label for="flavour">Pizza Flavour:</label>
   <select id="flavour" name="flavour">
+  <c:forEach>
+  
+  </c:forEach>
   <option value="Select Pizza Flavour">Select Pizza Flavour</option>
     <option value="Margherita">Margherita</option>
    <option value="Double Cheese Margherita">Double Cheese Margherita</option>
