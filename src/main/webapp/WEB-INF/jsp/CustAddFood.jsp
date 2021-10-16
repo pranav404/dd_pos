@@ -91,10 +91,6 @@
 		</tr>
 		</br>
 		<tr>
-			 <td><a href="Adddelfooddetails.jsp">Add/Delete food details</a></td></br>
-		</tr>
-		</br>
-		<tr>
 			 <td><a href="modifycartdetails.jsp">Modify cart details</a></td></tr></br>
 			
 		</tr>
