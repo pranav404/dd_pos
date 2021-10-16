@@ -56,11 +56,9 @@
   <label for="Type">Pizza Type:</label></td><td>
   <select id="Type" name="Type">
 	  
-  <option value="Select Pizza Type">Select Pizza Type</option>
-    <option value="Margherita">Margherita</option>
-   <option value="Double Cheese Margherita">Double Cheese Margherita</option>
-    <option value="Farm House">Farm House</option>
-    <option value="Peppy Panner">Peppy Panner</option>
+ <c:forEach  var="name"  items="${person.getProjectList()}">
+        <option value="${name}">${name}   </option>
+    </c:forEach>
   </select></td> 
   </tr>
   
