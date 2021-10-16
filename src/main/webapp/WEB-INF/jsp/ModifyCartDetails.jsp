@@ -68,16 +68,7 @@
 				<td>quantity:</td>
 				<td><input type="text" name="quantity" /></td>
 			</tr>
-			<tr>
-				<td><p>Size and Price:</p>
-				<td>  <input type="radio" id="small" name="size_price"
-					value="small">   <label for="small">small</label><br>
-					  <input type="radio" id="medium" name="size_price" value="medium">
-					  <label for="medium">medium</label><br>   <input type="radio"
-					id="Large" name="size_price" value="Large">   <label
-					for="Large">Large</label></td>
-				</td>
-			</tr>
+			
 
 			<tr>
 				<td>Order Date :</td>
