@@ -123,7 +123,14 @@ public class controller {
 		
 	}
 	
-	
+		//change password
+	@RequestMapping("/Forgotpassword")
+	public String changepass(Model model,@PathVariable String userID) {
+			CredentialsBean sb = new CredentialsBean();
+			sb.setuserID(userID);
+			model.addAttribute("changepass", sb);
+		return "index";
+	}
 	
 	//Admin Part-----------------------------------------------------------------------------------------------------------------
 	

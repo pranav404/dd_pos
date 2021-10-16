@@ -33,6 +33,10 @@ public int update(CredentialsBean p){
     String sql="update POS_TBL_User_Credentials set UserID="+p.getuserID()+",Password="+p.getPassword()+",Usertype="+p.getuserType()+",Loginstatus="+p.getloginStatus()+" where UserID = "+p.getuserID()+"";    
     return template.update(sql);    
 }
+public int changepass(CredentialsBean p) {
+    String sql="update POS_TBL_User_Credentials set Password="+p.getPassword()+" where UserID = "+p.getuserID()+"";    
+    return template.update(sql); 
+}
 public CredentialsBean getOrderById(String UserID){    
     String sql="select * from POS_TBL_User_Credentials where UserId=?";    
     return template.queryForObject(sql, new Object[]{UserID},new BeanPropertyRowMapper<CredentialsBean>(CredentialsBean.class));    
