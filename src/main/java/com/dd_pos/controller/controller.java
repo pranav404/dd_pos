@@ -245,6 +245,9 @@ public class controller {
 	@RequestMapping("/CustAddfood")
 	public String customerAddFood(Model model) {
 		
+		custFood f = new custFood();
+		List<FoodBean> foodlist = f.listFood(db);
+		model.addAttribute("list", foodlist);
 		return "CustAddFood";
 	}
 

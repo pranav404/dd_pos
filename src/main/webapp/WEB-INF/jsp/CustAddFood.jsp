@@ -1,3 +1,5 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -56,8 +58,8 @@
   <label for="Type">Pizza Type:</label></td><td>
   <select id="Type" name="Type">
 	  
- <c:forEach  var="name"  items="${person.getProjectList()}">
-        <option value="${name}">${name}   </option>
+ <c:forEach  var="food"  items="${list}">
+        <option value="${food.name}+${food.type}">${food.name} ${food.type}, ${food.foodsize}  </option>
     </c:forEach>
   </select></td> 
   </tr>
