@@ -36,5 +36,17 @@ public class verifyLogin {
 		
 		
 	}
+		public boolean changepass(CredentialsBean sb,dbutil db) {
+		try {
+			CredentialsDAOClass sdao = new CredentialsDAOClass();
+			sdao.setTemplate(db.getTemplate());
+			sdao.changepass(sb);
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 }
