@@ -79,15 +79,15 @@
 		</br>
 		
 		<tr>
-<<<<<<< HEAD
+
 			 <td><a href="Adddelfooddetails">Add/Delete food details</a></td></br>
 		</tr>
 		</br>
 		<tr>
 			 <td><a href="modifycartdetails">Modify cart details</a></td></tr></br>
-=======
+
 			 <td><a href="modifycartdetails.jsp">Modify cart details</a></td></tr></br>
->>>>>>> dba1a6312b7af4ebc61b1ec2605a4b84cbfaf148
+
 			
 		</tr>
 		</br>

@@ -91,19 +91,19 @@
 <tr>
 			
 		<tr>
-			<td> <a href="viewfooditems">View food items from cart</a></td></br>
+			<td> <a href="viewcartitems">View food items from cart</a></td></br>
 		</tr>
 		</br>
 		<tr>
-<<<<<<< HEAD
+
 			 <td><a href="Adddelfooddetails">Add/Delete food details</a></td></br>
 		</tr>
 		</br>
 		<tr>
 			 <td><a href="modifycartdetails">Modify cart details</a></td></tr></br>
-=======
-			 <td><a href="modifycartdetails.jsp">Modify cart details</a></td></tr></br>
->>>>>>> dba1a6312b7af4ebc61b1ec2605a4b84cbfaf148
+
+			 <td><a href="modifycartdetails">Modify cart details</a></td></tr></br>
+
 			
 		</tr>
 		</br>

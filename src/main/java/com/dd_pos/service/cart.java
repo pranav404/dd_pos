@@ -49,6 +49,33 @@ public class cart {
 		cdao.setTemplate(db.getTemplate());
 		return cdao.getCart();
 	}
+	public boolean updatecart(CartBean cb, dbutil db) {
+		// TODO Auto-generated method stub
+		try {
+		CartDAOClass cdao = new CartDAOClass();
+		cdao.setTemplate(db.getTemplate());
+		cdao.update(cb);
+		return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	public boolean detelecart(String cartID, dbutil db) {
+		// TODO Auto-generated method stub
+		try {
+			CartDAOClass cdao = new CartDAOClass();
+			cdao.setTemplate(db.getTemplate());
+			cdao.delete(cartID);
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 
 }

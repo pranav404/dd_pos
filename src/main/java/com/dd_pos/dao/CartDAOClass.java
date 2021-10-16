@@ -19,18 +19,18 @@ public void setTemplate(JdbcTemplate template) {
 public int save(CartBean p){    
     String sql="insert into pos_tbl_cart(userid,foodID,Type,Quantity,Cost,orderDate) values('"+p.getUserID()+"','"+p.getFoodID()+"','"+p.getType()+"','"+p.getQuantity()+"','"+p.getCost()+"','"+p.getOrderDate()+"')";    
     template.update(sql);
-	sql = "update pos_tbl_cart set cartid = concat(substring('"+p.getFoodID()+"',1,2),cartid_seq) where foodid = '"+p.getFoodID()+"'";
+	sql = "update pos_tbl_cart set cartid = concat(substring('"+p.getUserID()+"',1,2),cartid_seq) where userid = '"+p.getUserID()+"'";
     return template.update(sql);    
 }    
 public int update(CartBean p){    
-    String sql="update pos_tbl_cart set CartID="+p.getCartID()+",UserID="+p.getUserID()+",FoodID="+p.getFoodID()+",CartID="+p.getCartID()+",Quantity="+p.getQuantity()+",Cost="+p.getCost()+",OrderDate="+p.getOrderDate()+" where UserId="+p.getUserID()+"";    
+    String sql="update pos_tbl_cart set FoodID='"+p.getFoodID()+"',type = '"+p.getType()+"',Quantity='"+p.getQuantity()+"',Cost='"+p.getCost()+"',OrderDate= '"+p.getOrderDate()+"' where cartid='"+p.getCartID()+"'";    
     return template.update(sql);    
 }
-public int delete(int CartID){    
-    String sql="delete from pos_tbl_cart  where id="+CartID+"";    
+public int delete(String cartID){    
+    String sql="delete from pos_tbl_cart  where cartid='"+cartID+"'";    
     return template.update(sql);    
 }    
-public CartBean getCartById(int CartID){    
+public CartBean getCartById(String CartID){    
     String sql="select * from pos_tbl_cart where CartID=?";    
     return template.queryForObject(sql, new Object[]{CartID},new BeanPropertyRowMapper<CartBean>(CartBean.class));    
 }    

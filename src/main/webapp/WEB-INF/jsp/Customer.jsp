@@ -48,8 +48,8 @@
   <table cellspacing="20" cellpadding="20" border="3" style="border-collapse:collapse" >
   
  	<tr><td> <a href="CustAddfood">Add food item to cart</a></td></tr></br>
-	 <tr><td> <a href="viewfooditems">View food items from cart</a></td></tr></br>
-  	
+	 <tr><td> <a href="viewcartitems">View food items from cart</a></td></tr></br>
+  	<tr> <td><a href="Adddelfooddetails">Add/Delete food details</a></td></tr></br>
   	<tr> <td><a href="modifycartdetails">Modify cart details</a></td></tr></br>
    <tr><td><a href="confirmOrder">Confirm Order </a></td></tr></br>
 

@@ -271,16 +271,33 @@ public class controller {
 		return "redirect:/viewcartitems";
 	}
 	//edit cart items
-	@RequestMapping(value="/modifycartdetails/{CartID}")
-	public String modifycartdetails(Model model,@PathVariable String CartId) {
+	@RequestMapping(value="/editCart/{CartID}")
+	public String modifycartdetails(Model model,@PathVariable String CartID) {
 		CartBean cb = new CartBean();
-		cb.setCartID(CartId);
+		System.out.println("inside cb");
+		cb.setCartID(CartID);
 		model.addAttribute("modifycartdetails", cb);
+		custFood f = new custFood();
+		List<FoodBean> foodlist = f.listFood(db);
+		model.addAttribute("list", foodlist);
 		return "modifycartdetails";
 	}
-
-	
-
+	//save modified cart details
+	@RequestMapping("/modifycart")
+	public String modifycart(@ModelAttribute("modifycartdetails") CartBean cb,HttpServletRequest req) {
+		Date orderdate = Date.valueOf(req.getParameter("orderdate"));
+		String details[] = cb.getFoodID().split("\\+");
+		System.out.println(details.length);
+		cb.setFoodID(details[0]);
+		cb.setType(details[2]);
+		double cost = (double)(cb.getQuantity())*Double.parseDouble(details[3]);
+		cb.setCost(cost);
+		cb.setOrderDate(orderdate);
+		cart cartservices  = new cart();
+		if(cartservices.updatecart(cb,db))
+			return"redirect:/viewcartitems";
+		return "";
+	}
 	//view fooditems in cart
 	@RequestMapping("/viewcartitems")
 	public String ViewCartItems(Model model) 
@@ -289,6 +306,17 @@ public class controller {
 		List<CartBean> foodlist =f.listcartitems(db);
 		model.addAttribute("list", foodlist);
 		return "ViewCartItems";
+	}
+	
+	
+	//delete cart items
+	@RequestMapping(value = "/deleteCart/{cartID}")
+	public String deletecart(@PathVariable String cartID) {
+		cart cartservices = new cart();
+		if(cartservices.detelecart(cartID,db)) {
+			return"redirect:/viewcartitems";
+		}
+		return"";
 	}
 	
 	

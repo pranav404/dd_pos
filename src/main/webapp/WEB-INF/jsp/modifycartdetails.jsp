@@ -1,3 +1,5 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -34,17 +36,17 @@
 <body>
 
 	<div class="topnav">
-		<a href="Aboutus.jsp">About us</a> <a href="Contactus.jsp">Contact
+		<a href="Aboutus">About us</a> <a href="Contactus">Contact
 			us</a>
 		<div class="topnav-right">
-			<a class="active" href="Customer.jsp">Home</a> <a class="active"
-				href="index.jsp">Logout</a>
+			<a class="active" href="Customer">Home</a> <a class="active"
+				href="index">Logout</a>
 		</div>
 	</div>
 
 
 	
-	<form:form method="POST" action="">
+	<form:form method="POST" action="/dd_pos/modifycart" modelAttribute = "modifycartdetails">
 		<table cellspacing="20" cellpadding="20" border="3"
 			style="border-collapse: collapse" height="600">
 			<tr>
@@ -53,26 +55,26 @@
 					<table border="2" width="70%" cellpadding="2">
 
 
-						<td><form:hidden value="CartId" name="CartId" /></td>
+						<td><form:hidden path = "cartID" /></td>
 			</tr>
 			<tr>
 				<td><label for="Type">Pizza Type:</label>
-				<td><select id="Type" name="Type">
+				<td><form:select path = "foodID">
 						<c:forEach  var="food"  items="${list}">
-        <option value="${food.name}+${food.type}">${food.name} ${food.type}, ${food.foodsize}  </option>
+        <form:option value="${food.foodid }+${food.name}+${food.type}+${food.price}">${food.name} ${food.type}, ${food.foodsize} price per peice = ${food.price} </form:option>
     </c:forEach>
-				</select></td>
+				</form:select></td>
 				</td>
 			</tr>
 			<tr>
 				<td>quantity:</td>
-				<td><input type="text" name="quantity" /></td>
+				<td><form:input path = "quantity" /></td>
 			</tr>
 			
 
 			<tr>
 				<td>Order Date :</td>
-				<td><form:input type="textbox" name="OrderDate" /></td>
+				<td><input type = "date" name = "orderdate" /></td>
 			</tr>
 			<tr>
 
@@ -81,26 +83,26 @@
 			</tr>
 		</table>
 		<tr>
-			<td><a href="ViewCartItems.jsp">View food items from cart</a></td>
+			<td><a href="ViewCartItems">View food items from cart</a></td>
 			</br>
 		</tr>
 		</br>
 
 		<tr>
-			<td><a href="modifycartdetails.jsp">Modify cart details</a></td>
+			<td><a href="modifycartdetails">Modify cart details</a></td>
 		</tr>
 		</br>
 
 		</tr>
 		</br>
 		<tr>
-			<td><a href="confirmOrder.jsp">Confirm Order </a></td>
+			<td><a href="confirmOrder">Confirm Order </a></td>
 			</br>
 		</tr>
 
 		</br>
 		<tr>
-			<td><a href="Forgotpassword.jsp">Change Password</a></td>
+			<td><a href="Forgotpassword">Change Password</a></td>
 			</br>
 		</tr>
 		</table>
