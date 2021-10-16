@@ -257,6 +257,27 @@ public class controller {
 		model.addAttribute("list", foodlist);
 		return "CustAddFood";
 	}
+	
+	
+	//save selected food item to db
+	@RequestMapping("/saveaddeditem")
+	public String savefooddb(HttpServletRequest req) {
+		String fooddet = req.getParameter("Type");
+		String userid = req.getParameter("userid");
+		int quantity = Integer.parseInt(req.getParameter("quantity"));
+		Date orderdate = Date.valueOf(req.getParameter("orderdate"));
+		cart cartservices = new cart();
+		cartservices.addCart(userid,fooddet, quantity, orderdate, db);
+		return "redirect:/viewcartitems";
+	}
+	//edit cart items
+	@RequestMapping(value="/modifycartdetails/{CartID}")
+	public String modifycartdetails(Model model,@PathVariable String CartId) {
+		CartBean cb = new CartBean();
+		cb.setCartID(CartId);
+		model.addAttribute("modifycartdetails", cb);
+		return "modifycartdetails";
+	}
 
 	
 
@@ -264,11 +285,13 @@ public class controller {
 	@RequestMapping("/viewcartitems")
 	public String ViewCartItems(Model model) 
 	{
-		custFood f = new custFood();
-		List<FoodBean> foodlist = f.listFood(db);
+		cart f = new cart();
+		List<CartBean> foodlist =f.listcartitems(db);
 		model.addAttribute("list", foodlist);
 		return "ViewCartItems";
 	}
+	
+	
 	
 
 	

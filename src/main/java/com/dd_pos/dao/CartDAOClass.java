@@ -17,7 +17,9 @@ public void setTemplate(JdbcTemplate template) {
     this.template = template;    
 }    
 public int save(CartBean p){    
-    String sql="insert into pos_tbl_cart(cartdID,userID,foodID,Type,Quantity,Cost,orderDate) values('"+p.getCartID()+"',"+p.getUserID()+","+p.getFoodID()+","+p.getType()+","+p.getQuantity()+","+p.getCost()+",'"+p.getOrderDate()+"')";    
+    String sql="insert into pos_tbl_cart(userid,foodID,Type,Quantity,Cost,orderDate) values('"+p.getUserID()+"','"+p.getFoodID()+"','"+p.getType()+"','"+p.getQuantity()+"','"+p.getCost()+"','"+p.getOrderDate()+"')";    
+    template.update(sql);
+	sql = "update pos_tbl_cart set cartid = concat(substring('"+p.getFoodID()+"',1,2),cartid_seq) where foodid = '"+p.getFoodID()+"'";
     return template.update(sql);    
 }    
 public int update(CartBean p){    
@@ -36,13 +38,13 @@ public List<CartBean> getCart(){
     return template.query("select * from pos_tbl_cart ",new RowMapper<CartBean>(){    
         public CartBean mapRow(ResultSet rs, int row) throws SQLException {    
 	CartBean e=new CartBean();    
-            e.setCartID(rs.getString(1));    
-            e.setUserID(rs.getString(2));    
-            e.setFoodID(rs.getString(3));    
-            e.setType(rs.getString(4));   
-            e.setQuantity(rs.getInt(5));    
-            e.setCost(rs.getDouble(6)); 
-            e.setOrderDate(rs.getDate(6));    
+            e.setCartID(rs.getString(2));    
+            e.setUserID(rs.getString(3));    
+            e.setFoodID(rs.getString(4));    
+            e.setType(rs.getString(5));   
+            e.setQuantity(rs.getInt(6));    
+            e.setCost(rs.getDouble(7)); 
+            e.setOrderDate(rs.getDate(8));    
             return e;    
         }    
     });    

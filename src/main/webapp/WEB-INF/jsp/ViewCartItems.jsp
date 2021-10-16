@@ -1,3 +1,6 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -35,31 +38,33 @@
 <body>
 
 <div class="topnav">
-  <a href="Aboutus.jsp">About us</a>
-    <a href="Contactus.jsp">Contact us</a>
+  <a href="Aboutus">About us</a>
+    <a href="Contactus">Contact us</a>
   <div class="topnav-right">
-  <a class="active" href="Admin.jsp">Home</a>
-    <a class="active" href="index.jsp">Logout</a>
+  <a class="active" href="Admin">Home</a>
+    <a class="active" href="index">Logout</a>
   </div>
 </div>
 <table cellspacing="20" cellpadding="20" border="3"
 		style="border-collapse: collapse" height="600">
 		<tr>
 			
-			<td> <a href="CustAddfood.jsp">Add Food items to cart</a></td></br>
+			<td> <a href="CustAddfood">Add Food items to cart</a></td></br>
 			<td rowspan=7 width="650"><h2></h2>
 				<table border="2" width="70%" cellpadding="2">
 				<tr><th>CartId</th><th>Type</th><th>Quantity</th><th>Size And Price</th><th>Order Date</th><th>Edit</th><th>Delete</th></tr> 
 				<c:forEach var="Cart" items="${list}">   
    <tr>  
-   <td>${Cart.id}</td>  
-   <td>${Cart.Type}</td>  
-   <td>${Cart.Quantity}</td>
-   <td>${Cart.SizeAndPrice } </td> 
-   <td>${Cart.OrderDate}</td> 
+   <td>${Cart.cartID}</td>
+   <td>${Cart.foodID}</td>
+   <td>${Cart.userID}</td>
+   <td>${Cart.type}</td>    
+   <td>${Cart.quantity}</td>
+   <td>${Cart.cost} </td> 
+   <td>${Cart.orderDate}</td> 
      
-   <td><a href="editCart/${Cart.id}">Edit</a></td>  
-   <td><a href="deleteCart/${Cart.id}">Delete</a></td>  
+   <td><a href="editCart/${Cart.cartID}">Edit</a></td>  
+   <td><a href="deleteCart/${Cart.cartID}">Delete</a></td>  
    </tr>  
    </c:forEach>
 				
@@ -69,26 +74,26 @@
 		</table>
 		
 		<tr>
-			<td><a href="ViewCartItems.jsp">View food items from cart</a></td></br>
+			<td><a href="ViewCartItems">View food items from cart</a></td></br>
 		</tr>
 		</br>
 		
 		<tr>
-			 <td><a href="Adddelfooddetails.jsp">Add/Delete food details</a></td></br>
+			 <td><a href="Adddelfooddetails">Add/Delete food details</a></td></br>
 		</tr>
 		</br>
 		<tr>
-			 <td><a href="modifycartdetails.jsp">Modify cart details</a></td></tr></br>
+			 <td><a href="modifycartdetails">Modify cart details</a></td></tr></br>
 			
 		</tr>
 		</br>
 		<tr>
-			<td><a href="confirmOrder.jsp">Confirm Order </a></td></br>
+			<td><a href="confirmOrder">Confirm Order </a></td></br>
 		</tr>
 		
 		</br>
 		<tr>
-		<td><a href="Forgotpassword.jsp">Change Password</a></td></br>
+		<td><a href="Forgotpassword">Change Password</a></td></br>
 		</tr>
 
 
