@@ -91,6 +91,12 @@ li a:hover:not(.active) {
 	</ul>
 	<div class="img">
 		<div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+			<h1>change status of ${orderid}</h1>
+			<form method="post" action="/dd_pos/statchanged">
+				<input type="Hidden" name="orderid" value=${orderid}> <input
+					type="text" name="status" placeholder="orderstatus" required>
+				<input type="submit" value="Change status">
+			</form>
 
 		</div>
 </body>
