@@ -1,13 +1,17 @@
 package com.dd_pos.bean;
 import java.util.Date;
+
+import javax.validation.constraints.NotNull;
 public class CartBean {
 	
 	private String cartID;
 	private String userID;
 	private String foodID;
 	private String Type;
+	@NotNull (message="This is required field ")
 	private int Quantity;
 	private double Cost;
+	@NotNull (message="This is required field ")
 	private Date orderDate;
 	
 	public String getCartID() {
