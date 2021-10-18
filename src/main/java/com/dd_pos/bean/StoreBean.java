@@ -1,7 +1,11 @@
 package com.dd_pos.bean;
 
+import javax.validation.constraints.NotNull;
+
 public class StoreBean {
-	private String storeID,Name,Street,mobileNo,City,State,Pincode;
+	@NotNull (message="This is required field ")
+	private String storeID,Name,Street,mobileNo,City,State;
+	private String Pincode;
 
 	public String getStoreID() {
 		return this.storeID;
