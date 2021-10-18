@@ -52,28 +52,28 @@ input[type="password"]:-ms-input-placeholder {
      <td><b>Firstname :</b> </td>
 
      <td><input type= "text" name="Firstname"  placeholder="Firstname"
-							required style="width: 200; height: 30" /></td>
+							required style="width: 200; height: 30" required="required" /></td>
 
      </tr>
       <tr>
      <td><b>Lastname :</b> </td>
 
      <td><input type= "text" name="Lastname"  placeholder="Lastname"
-							required style="width: 200; height: 30" /> </td>
+							required style="width: 200; height: 30" required="required" /> </td>
 							
 
      </tr>
      <td><b>Password :</b> </td>
 
      <td><input type= "password" name="password"  placeholder="Enter Password"
-							required style="width: 200; height: 30" /> </td>
+							required style="width: 200; height: 30" required="required" /> </td>
 							
 
      </tr>
      <tr>
      <td><b>Date Of Birth : </b></td>
 
-     <td><input type="date" id="birthday" name="dob" required style="width: 200;height:30"> </td>
+     <td><input type="date" id="birthday" name="dob" required style="width: 200;height:30" required="required"> </td>
 							
 
      </tr>
@@ -90,7 +90,7 @@ input[type="password"]:-ms-input-placeholder {
      <td><b>Street: </b></td>
 
      <td><input type= "text" name="street"  placeholder="Street"
-							required style="width: 200; height: 30" /> </td>
+							required style="width: 200; height: 30" required="required" /> </td>
 							
 
      </tr>
@@ -99,7 +99,7 @@ input[type="password"]:-ms-input-placeholder {
      <td><b>Location: </b></td>
 
      <td><input type= "text" name="loc"  placeholder="Location"
-							required style="width: 200; height: 30" /> </td>
+							required style="width: 200; height: 30" required="required" /> </td>
 							
 
      </tr>
@@ -109,7 +109,7 @@ input[type="password"]:-ms-input-placeholder {
      <td><b>City:</b> </td>
 
      <td><input type= "text" name="city"  placeholder="City"
-							required style="width: 200; height: 30" /> </td>
+							required style="width: 200; height: 30" required="required" /> </td>
 							
 
      </tr>
@@ -118,7 +118,7 @@ input[type="password"]:-ms-input-placeholder {
      <td><b>State:</b> </td>
 
      <td><input type= "text" name="state"  placeholder="State"
-							required style="width: 200; height: 30" /> </td>
+							required style="width: 200; height: 30" required="required" /> </td>
 							
 
      </tr>
@@ -127,21 +127,21 @@ input[type="password"]:-ms-input-placeholder {
      <td><b>PinCode: </b></td>
 
      <td><input type= "text" name="pin"  placeholder="Pincode"
-							required style="width: 200; height: 30" /> </td>
+							required style="width: 200; height: 30" required="required" /> </td>
      </tr>
      
       <tr>
      <td><b>MobileNo: </b></td>
 
      <td><input type= "text" name="mob"  placeholder="MobileNo"
-							required style="width: 200; height: 30" /> </td>
+							required style="width: 200; height: 30" required="required" /> </td>
      </tr>
      
      <tr>
      <td><b>EmailId:</b> </td>
 
      <td><input type= "text" name="mail"  placeholder="EmailId"
-							required style="width: 200; height: 30" /> </td>
+							required style="width: 200; height: 30" required="required" /> </td>
      </tr>
      
      <tr><td>
