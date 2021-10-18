@@ -1,12 +1,13 @@
-package com.pizza.service;
+package com.dd_pos.service;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pizza.bean.CredentialsBean;
-import com.pizza.dao.*;
-import com.pizza.util.dbutil;
+import com.dd_pos.dao.CredentialsDAOClass;
+import com.dd_pos.bean.CredentialsBean;
+import com.dd_pos.dao.*;
+import com.dd_pos.util.dbutil;
 public class changepassword {
 
 		public boolean changepass(CredentialsBean sb,dbutil db) {
