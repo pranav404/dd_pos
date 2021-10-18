@@ -1,7 +1,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,27 +33,70 @@
 .topnav-right {
 	float: right;
 }
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 25%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+li a {
+	display: block;
+	font-size: 25px;
+	color: #000;
+	background-color: #04AA6D;
+	padding: 25px 40px;
+	text-decoration: none;
+}
+
+li a:hover:not(.active) {
+	background-color: #555;
+	font-size: 25px;
+	color: white;
+}
+
+.img {
+	background-image:
+		url('https://wallpapersdsc.net/wp-content/uploads/2015/11/Pizza_Widescreen4.jpg');
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 </style>
 </head>
 <body>
 
 	<div class="topnav">
-		<a href="Aboutus.jsp">About us</a> <a href="Contactus.jsp">Contact
-			us</a>
-			<h6>Welcome User ${User.userID}</h6>
+		<a href="Aboutus">About us</a> <a href="Contactus">Contact us</a>
+		<h3 style="color: white" align="center">Welcome Admin
+			${User.userID}</h3>
 		<div class="topnav-right">
-			<a class="active" href="Admin.jsp">Home</a> <a class="active"
-				href="index.jsp">Logout</a>
+			<a class="active" href="Admin">Home</a> <a class="active"
+				href="logout">Logout</a>
 		</div>
-	</div>  
-	<table cellspacing="20" cellpadding="20" border="3"
-		style="border-collapse: collapse" height="600">
+	</div>
 
-		<tr>
-			<td><a href="Adddelpizza.jsp">Add/Delete pizza details</a></td>
-			<td rowspan=6 width="650"><h3>Change order status</h3>
-				<table border="2" width="70%" cellpadding="2">
-					<tr>
+	<ul>
+		<li><a href="Adddelpizza">Add/Delete pizza store details</a></li>
+		<li><a href="viewmodpizza">View/Modify pizza store details</a></li>
+		<li><a href="Adddelfood">Add/Delete food details</a></li>
+		<li><a href="viewmodfood">View/Modify food details</a></li>
+		<li><a href="orderstatus">Change order status</a></li>
+		<li><a href="Forgotpassword">Change Password</a></li>
+	</ul>
+	<div class="img">
+		<div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+<h1 align="center">
+Order Status
+</h1>
+	
+<table border="2" width="70%" cellpadding="2" align="center" style="font-size:28px; background-color:white">
+<tr>
 						<th>Order Id</th>
 						<th>Order Date</th>
 						<th>Store Id</th>
@@ -79,32 +124,8 @@
 							<td><a href="changestatus/${status.orderid}">Change</a></td>
 						</tr>
 					</c:forEach>
-				</table> <br />
-		</tr>
-		</br>
-		<tr>
-			<td><a href="viewmodpizza">View/Modify pizza details</a></td>
-		</tr>
-		</br>
-		<tr>
-			<td><a href="Adddelfood">Add/Delete food details </a></td>
-		</tr>
-		</br>
-		<tr>
-			<td><a href="viewmodfood">View/Modify food details</a></td>
-		</tr>
-		</br>
-		<tr>
-			<td><a href="orderstatus">Change order status</a></td>
-		</tr>
-		</br>
-		<tr>
-			<td><a href="changepassword">Change Password</a></td>
-		</tr>
-		</br>
+					</table> <br />
 
-
-	</table>
-	</form>
+		</div>
 </body>
 </html>
