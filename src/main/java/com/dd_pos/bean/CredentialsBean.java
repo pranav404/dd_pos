@@ -1,8 +1,15 @@
 package com.dd_pos.bean;
 
+import javax.validation.constraints.NotNull;
+
 public class CredentialsBean 
 {
-private String userID,Password,userType;
+	@NotNull (message="This is required field ")
+	private String userID;
+	@NotNull (message="This is required field ")
+	private String Password;
+
+	private String userType;
 	private int loginStatus;
 	public String getuserID() 
 	{
