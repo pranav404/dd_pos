@@ -44,10 +44,10 @@ public class cart {
 		}
 		return false;
 	}
-	public List<CartBean> listcartitems(dbutil db){
+	public List<CartBean> listcartitems(String userid,dbutil db){
 		CartDAOClass cdao = new CartDAOClass();
 		cdao.setTemplate(db.getTemplate());
-		return cdao.getCart();
+		return cdao.getCart(userid);
 	}
 	public boolean updatecart(CartBean cb, dbutil db) {
 		// TODO Auto-generated method stub

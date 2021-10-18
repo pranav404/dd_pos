@@ -43,6 +43,7 @@ input[type="password"]:-ms-input-placeholder {
 
   <a href="Aboutus">About us</a>
     <a href="Contactus">Contact us</a>
+    <h6>Welcome User ${User.userID}</h6>
   </div>
     <table bgcolor="white" align="right" >
 				<tr>

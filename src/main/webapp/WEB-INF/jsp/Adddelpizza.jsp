@@ -39,10 +39,10 @@
 
 	<div class="topnav">
 		<a href="Aboutus">About us</a> <a href="Contactus">Contact
-			us</a>
+			us</a> <h6>Welcome User ${User.userID}</h6>
 		<div class="topnav-right">
 			<a class="active" href="Admin">Home</a> <a class="active"
-				href="index">Logout</a>
+				href="logout">Logout</a>
 		</div>
 	</div>
 	<table cellspacing="20" cellpadding="20" border="3"

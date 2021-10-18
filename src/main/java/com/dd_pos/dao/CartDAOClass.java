@@ -34,8 +34,8 @@ public CartBean getCartById(String CartID){
     String sql="select * from pos_tbl_cart where CartID=?";    
     return template.queryForObject(sql, new Object[]{CartID},new BeanPropertyRowMapper<CartBean>(CartBean.class));    
 }    
-public List<CartBean> getCart(){    
-    return template.query("select * from pos_tbl_cart ",new RowMapper<CartBean>(){    
+public List<CartBean> getCart(String userid){    
+    return template.query("select * from pos_tbl_cart where userid = '"+userid+"'",new RowMapper<CartBean>(){    
         public CartBean mapRow(ResultSet rs, int row) throws SQLException {    
 	CartBean e=new CartBean();    
             e.setCartID(rs.getString(2));    

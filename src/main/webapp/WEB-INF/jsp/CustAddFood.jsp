@@ -39,6 +39,7 @@
 <div class="topnav">
   <a href="Aboutus">About us</a>
     <a href="Contactus">Contact us</a>
+    <h6>Welcome User ${User.userID}</h6>
   <div class="topnav-right">
   <a class="active" href="Admin">Home</a>
     <a class="active" href="index">Logout</a>
@@ -53,10 +54,7 @@
 				<table border="2" width="70%" cellpadding="2">
 <form action="saveaddeditem" method = "post">
 <table>
-  <tr>
-    <td>Userid</td>
-    <td><input type = "text" name = "userid"></td>
-  </tr>
+  
 <tr>
 <td>
   <label for="Type">Pizza Type:</label></td><td>

@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;    
 import org.springframework.web.bind.annotation.RequestMapping;    
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dd_pos.bean.CredentialsBean;
 import com.dd_pos.bean.FoodBean;
@@ -27,6 +30,8 @@ import com.dd_pos.service.*;
 
 import com.dd_pos.util.*;
 
+
+@SessionAttributes("User")
 @Controller
 public class controller {
 	@Autowired
@@ -35,7 +40,7 @@ public class controller {
 	
 	
 	@RequestMapping("/login")
-	public String login(HttpServletRequest req) {
+	public ModelAndView login(HttpServletRequest req) {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		CredentialsBean cb = new CredentialsBean();
@@ -44,14 +49,23 @@ public class controller {
 		User v = new User();
 		String retValue =  v.login(cb, db);
 		if(retValue.equals("A")) {
-			return "Admin";
+			cb.setuserType("admin");
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("User", cb);
+			mv.setViewName("Admin");
+			return mv;
 		}
 		else
 			if(retValue.equals("C")) {
-				return "Customer";
-			}
+				cb.setuserType("customer");
+				ModelAndView mv = new ModelAndView();
+				mv.addObject("User", cb);
+				mv.setViewName("Customer");
+				return mv;			}
 		else {
-			return "index";
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("index");
+			return mv;
 		}
 	}
 	
@@ -73,17 +87,19 @@ public class controller {
 	
 	//Logout
 	@RequestMapping("/logout")
-	public String logout() {
+	public String logout(SessionStatus status) {
+		status.setComplete();
 		return "index";
 	}
 	@RequestMapping("/index")
-	public String index() {
+	public String index(SessionStatus status) {
+		status.setComplete();
 		return "index";
 	}
 	
 	//Getting Details From the New User
 	@RequestMapping("/save")
-	public String savedetails(HttpServletRequest req) {
+	public ModelAndView savedetails(HttpServletRequest req) {
 		String fname,lname,gender,street,loc,city,state,mail,pss;
 		Date dob;
 		String pin,mob;
@@ -115,10 +131,18 @@ public class controller {
 		User user = new User();
 		String retValue = user.register(p,db);
 		if(retValue.equals("SUCESS")) {
-			return "Customer";
+			CredentialsBean cb = new CredentialsBean();
+			
+			cb.setuserType("customer");
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("User", cb);
+			mv.setViewName("Customer");
+			return mv;
 		}
 		else {
-			return "index";
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("index");
+			return mv;
 		}
 		
 	}
@@ -137,6 +161,15 @@ public class controller {
 	//Adding or deleting pizza details
 	@RequestMapping("/Adddelpizza")
 	public String adddelpizza(Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		store storeservice = new store();
 		List<StoreBean> storeList = storeservice.listStore(db);
 		model.addAttribute("list", storeList);
@@ -146,6 +179,15 @@ public class controller {
 	//Pizza form
 	@RequestMapping("/pizzaform")
 	public String pizzaform(Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		StoreBean sb = new StoreBean();
 		model.addAttribute("storebean", sb);
 		return "pizzaform";
@@ -153,7 +195,16 @@ public class controller {
 	
 	//Add pizza Store
 	@RequestMapping("/addpizzastore")
-	public String addpizzastore(@ModelAttribute("storebean") StoreBean sb) {
+	public String addpizzastore(@ModelAttribute("storebean") StoreBean sb,Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		store storeservice = new store();
 		storeservice.addStore(sb, db);
 		return "redirect:Adddelpizza";
@@ -161,6 +212,15 @@ public class controller {
 	//viewmodifypizza
 	@RequestMapping("/viewmodpizza")
 	public String viewmodifypizza(Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		store storeservice = new store();
 		List<StoreBean> storeList = storeservice.listStore(db);
 		model.addAttribute("list", storeList);
@@ -170,6 +230,15 @@ public class controller {
 	//editPpizza
 	@RequestMapping(value="/editpizza/{storeID}")
 	public String editStore(Model model,@PathVariable String storeID) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		StoreBean sb = new StoreBean();
 		sb.setStoreID(storeID);
 		model.addAttribute("editStore", sb);
@@ -178,14 +247,32 @@ public class controller {
 	
 	//save edited store
 	@RequestMapping("/saveeditpizza")
-	public String saveedit(@ModelAttribute("editStore") StoreBean sb) {
+	public String saveedit(@ModelAttribute("editStore") StoreBean sb,Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		store storeservice = new store();
 		storeservice.editstore(sb, db);
 		return "redirect:viewmodpizza";
 	}
 	//delete pizza store
 	@RequestMapping("/deletepizza/{storeID}")
-	public String deletepizza(@PathVariable String storeID) {
+	public String deletepizza(@PathVariable String storeID,Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		store storeservices = new store();
 		storeservices.deletestore(storeID, db);
 		return "redirect:Adddelpizza";
@@ -193,6 +280,15 @@ public class controller {
 	//Adding or deleting food details
 	@RequestMapping("/Adddelfood")
 	public String adddelfood(Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		food foodservice = new food();
 		List<FoodBean> foodList = foodservice.listFood(db);
 		model.addAttribute("list", foodList);
@@ -201,13 +297,31 @@ public class controller {
 	//food form
 	@RequestMapping("/foodform")
 	public String foodform(Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		FoodBean fb = new FoodBean();
 		model.addAttribute("foodbean", fb);
 		return "foodform";
 	}
 	//Add food
 	@RequestMapping("/addfooditem")
-	public String addfooddet(@ModelAttribute("foodbean") FoodBean fb) {
+	public String addfooddet(@ModelAttribute("foodbean") FoodBean fb,Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		food foodservice = new food();
 		foodservice.addFood(fb, db);
 		return "redirect:Adddelfood";
@@ -215,6 +329,15 @@ public class controller {
 	//viewmodifyfood
 	@RequestMapping("/viewmodfood")
 	public String viewmodifyfood(Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		food foodservice = new food();
 		List<FoodBean> foodList = foodservice.listFood(db);
 		model.addAttribute("list", foodList);
@@ -223,6 +346,15 @@ public class controller {
 	//editfood
 	@RequestMapping(value="/editfood/{Foodid}")
 	public String editfood(Model model,@PathVariable String Foodid) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		FoodBean sb = new FoodBean();
 		sb.setFoodid(Foodid);
 		model.addAttribute("editfood", sb);
@@ -231,14 +363,32 @@ public class controller {
 	
 	//save edited food
 	@RequestMapping("/saveeditfood")
-	public String saveedit(@ModelAttribute("editfood") FoodBean sb) {
+	public String saveedit(@ModelAttribute("editfood") FoodBean sb,Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		food foodservice = new food();
 		foodservice.editfood(sb, db);
 		return "redirect:viewmodfood";
 	}
 	//delete food
 	@RequestMapping("/deletefood/{Foodid}")
-	public String deletefood(@PathVariable String Foodid) {
+	public String deletefood(@PathVariable String Foodid,Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
 		food foodservices = new food();
 		foodservices.deletefood(Foodid, db);
 		return "redirect:/Adddelfood";
@@ -251,6 +401,15 @@ public class controller {
 	//add fooditems to cart
 	@RequestMapping("/CustAddfood")
 	public String customerAddFood(Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("customer")) {
+				return "index";
+			}
+		}
 		
 		custFood f = new custFood();
 		List<FoodBean> foodlist = f.listFood(db);
@@ -261,9 +420,18 @@ public class controller {
 	
 	//save selected food item to db
 	@RequestMapping("/saveaddeditem")
-	public String savefooddb(HttpServletRequest req) {
+	public String savefooddb(HttpServletRequest req,Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("customer")) {
+				return "index";
+			}
+		}
 		String fooddet = req.getParameter("Type");
-		String userid = req.getParameter("userid");
+		String userid = cb.getuserID();
 		int quantity = Integer.parseInt(req.getParameter("quantity"));
 		Date orderdate = Date.valueOf(req.getParameter("orderdate"));
 		cart cartservices = new cart();
@@ -273,6 +441,15 @@ public class controller {
 	//edit cart items
 	@RequestMapping(value="/editCart/{CartID}")
 	public String modifycartdetails(Model model,@PathVariable String CartID) {
+		CredentialsBean crb = (CredentialsBean) model.getAttribute("User");
+		if(crb==null) {
+			return "index";
+		}
+		else {
+			if(!crb.getuserType().equals("customer")) {
+				return "index";
+			}
+		}
 		CartBean cb = new CartBean();
 		System.out.println("inside cb");
 		cb.setCartID(CartID);
@@ -284,7 +461,16 @@ public class controller {
 	}
 	//save modified cart details
 	@RequestMapping("/modifycart")
-	public String modifycart(@ModelAttribute("modifycartdetails") CartBean cb,HttpServletRequest req) {
+	public String modifycart(@ModelAttribute("modifycartdetails") CartBean cb,HttpServletRequest req,Model model) {
+		CredentialsBean crb = (CredentialsBean) model.getAttribute("User");
+		if(crb==null) {
+			return "index";
+		}
+		else {
+			if(!crb.getuserType().equals("customer")) {
+				return "index";
+			}
+		}
 		Date orderdate = Date.valueOf(req.getParameter("orderdate"));
 		String details[] = cb.getFoodID().split("\\+");
 		System.out.println(details.length);
@@ -302,8 +488,17 @@ public class controller {
 	@RequestMapping("/viewcartitems")
 	public String ViewCartItems(Model model) 
 	{
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("customer")) {
+				return "index";
+			}
+		}
 		cart f = new cart();
-		List<CartBean> foodlist =f.listcartitems(db);
+		List<CartBean> foodlist =f.listcartitems(cb.getuserID(),db);
 		model.addAttribute("list", foodlist);
 		return "ViewCartItems";
 	}
@@ -311,12 +506,27 @@ public class controller {
 	
 	//delete cart items
 	@RequestMapping(value = "/deleteCart/{cartID}")
-	public String deletecart(@PathVariable String cartID) {
+	public String deletecart(@PathVariable String cartID,Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("customer")) {
+				return "index";
+			}
+		}
 		cart cartservices = new cart();
 		if(cartservices.detelecart(cartID,db)) {
 			return"redirect:/viewcartitems";
 		}
 		return"";
+	}
+	
+	//Confirm Order
+	@RequestMapping("/confirmOrder")
+	public String confirmOrder() {
+		return "confirmOrder";
 	}
 	
 	

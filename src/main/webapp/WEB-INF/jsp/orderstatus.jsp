@@ -36,6 +36,7 @@
 	<div class="topnav">
 		<a href="Aboutus.jsp">About us</a> <a href="Contactus.jsp">Contact
 			us</a>
+			<h6>Welcome User ${User.userID}</h6>
 		<div class="topnav-right">
 			<a class="active" href="Admin.jsp">Home</a> <a class="active"
 				href="index.jsp">Logout</a>
