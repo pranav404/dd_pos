@@ -26,16 +26,16 @@ div {
 				<tbody>
 					<tr>
 						<td><input type="text" name="username" placeholder="Username"
-							required style="width: 300; height: 30" /></td>
+							required style="width: 300; height: 30" required="required" /></td>
 					</tr>
 					<tr>
 						<td><input type="password" name="password"
-							placeholder="Password" required style="width: 300; height: 30" /></td>
+							placeholder="Password" required style="width: 300; height: 30" required="required" /></td>
 					</tr>
 					<tr>
 						<td><input type="checkbox"
 							name="Remember me on this computer">Remember me on this
-							computer <input type="submit" value="Login" bgcolor=#008080 /></td>
+							computer <input type="submit" value="Login" bgcolor=#008080  /></td>
 					</tr>
 					<tr>
 						<td>New User? <a href="NewUserSignup.jsp"> Click here to
