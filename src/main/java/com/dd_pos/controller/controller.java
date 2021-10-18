@@ -394,6 +394,50 @@ public class controller {
 		return "redirect:/Adddelfood";
 	}
 	
+	@RequestMapping("/orderstatus")
+	public String ordersview(Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
+		order od = new order();
+		List<OrderBean> orderlist = od.listorders(db);
+		model.addAttribute("list", orderlist);
+		return "orderstatus";
+	}
+	
+	@RequestMapping("/changestatus/{orderid}")
+	public String changeorderstatus(@PathVariable String orderid,Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("admin")) {
+				return "index";
+			}
+		}
+		model.addAttribute("orderid", orderid);
+		return "changestat";
+		
+		
+	}
+	
+	@RequestMapping("/statchanged")
+	public String statchanged(HttpServletRequest req,Model model) {
+		OrderBean ob = new OrderBean();
+		String orderid = req.getParameter("orderid");
+		String status = req.getParameter("status");
+		order od = new order();
+		od.changeorderstat(orderid, status, db);
+		return "redirect:/orderstatus";
+	}
+	
 	
 	
 	
@@ -526,8 +570,66 @@ public class controller {
 	//Confirm Order
 	@RequestMapping("/confirmOrder")
 	public String confirmOrder() {
-		return "confirmOrder";
+		
+		return "ShippingAddress";
 	}
+	
+	@RequestMapping("ordership")
+	public String confirmorderwithaddress(HttpServletRequest req,Model model) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("customer")) {
+				return "index";
+			}
+		}
+		String Street = req.getParameter("street");
+		String City = req.getParameter("city");
+		String state = req.getParameter("state");
+		String pincode = req.getParameter("pincode");
+		String mobileno = req.getParameter("mobileno");
+		String orderdate = req.getParameter("orderdate");
+		OrderBean ob = new OrderBean();
+		ob.setStreet(Street);
+		ob.setCity(City);
+		ob.setState(state);
+		ob.setPincode(pincode);
+		ob.setMobileno(mobileno);
+		ob.setOrderdate(orderdate);
+		cart cartservices = new cart();
+		ob.setUserid(cb.getuserID());
+		double result = cartservices.orderCart(cb.getuserID(),ob,db);
+		if(result>=0) {
+			System.out.println(result);
+			model.addAttribute("total", result);
+			return "confirmOrder";
+		}
+		return "redirect:/logout";
+	}
+	
+	@RequestMapping(value="/payment")
+	public String payment(OrderBean ob,Model model,HttpServletRequest req) {
+		CredentialsBean cb = (CredentialsBean) model.getAttribute("User");
+		if(cb==null) {
+			return "index";
+		}
+		else {
+			if(!cb.getuserType().equals("customer")) {
+				return "index";
+			}
+		}
+		creditcard card=new creditcard();
+		String number,validfrom,validto,Balance;
+		number = req.getParameter("number");
+		validfrom = req.getParameter("validfrom");
+		validto = req.getParameter("validto");
+		Balance = req.getParameter("Balance");
+		card.addCard(number, validfrom, validto, Balance, db);
+		return "shipping";
+	}
+	
 	
 	
 	

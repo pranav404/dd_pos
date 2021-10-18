@@ -92,16 +92,12 @@
 			<td> <a href="viewcartitems">View food items from cart</a></td></br>
 		</tr>
 		</br>
-		<tr>
-
-			 <td><a href="Adddelfooddetails">Add/Delete food details</a></td></br>
-		</tr>
+		
 		</br>
 		<tr>
 			 <td><a href="modifycartdetails">Modify cart details</a></td></tr></br>
 
-			 <td><a href="modifycartdetails">Modify cart details</a></td></tr></br>
-
+			
 			
 		</tr>
 		</br>

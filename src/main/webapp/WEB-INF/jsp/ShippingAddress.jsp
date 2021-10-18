@@ -1,7 +1,5 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +35,7 @@
     <a href="Contactus">Contact us</a>
   <div class="topnav-right">
   <a class="active" href="Admin">Home</a>
-    <a class="active" href="index">Logout</a>
+    <a class="active" href="logout">Logout</a>
   </div>
 </div>
 <table cellspacing="20" cellpadding="20" border="3"
@@ -47,19 +45,11 @@
 			
 			<td rowspan=7 width="650" align="center"><h2>Enter your Shipping Address</h2>
 				<table border="2" width="70%" cellpadding="2">
-<form action="" method = "post">
+<form action="ordership" method = "post">
 <table>
-  <tr>
-    <td><form hidden path = "OrderID" required style="width: 200; height: 30" />  </td>
-    
-  </tr>
   
-  <tr>
-        <td>OrderDate:</td>
-        
-         <td><input type = "date" name = "orderdate"  placeholder="orderDate"
-							required style="width: 200; height: 30" /> </td>
-         </tr>
+  <h3>Total cost = ${total}</h3>
+  
 <tr>
 
 <tr>
@@ -73,9 +63,9 @@
      </tr>
      
      <tr>
-     <td><b>Location: </b></td>
+     <td><b>Orderdate: </b></td>
 
-     <td><input type= "text" name="loc"  placeholder="Location"
+     <td><input type= "date" name="orderdate"
 							required style="width: 200; height: 30" /> </td>
 							
 
@@ -103,52 +93,23 @@
      <tr>
      <td><b>PinCode: </b></td>
 
-     <td><input type= "text" name="pin"  placeholder="Pincode"
+     <td><input type= "text" name="pincode"  placeholder="Pincode"
 							required style="width: 200; height: 30" /> </td>
      </tr>
      
       <tr>
      <td><b>MobileNo: </b></td>
 
-     <td><input type= "text" name="mob"  placeholder="MobileNo"
+     <td><input type= "text" name="mobileno"  placeholder="MobileNo"
 							required style="width: 200; height: 30" /> </td>
      </tr>
      
-
-         
-         
-
-
-
-<tr><td><input type ="submit" value="Save Address" align="center"> </td></tr>
 <tr><td><input type ="submit" value="Proceed Pay" align="center"> </td></tr>
 
 			
 
-</table><tr>
-			<td><a href="CustAddFood">Add food item to cart</a></td></br>
-		</tr>
+</table>
 
-<tr>
-			<td><a href="ViewCartItems">View food items from cart</a></td></br>
-		</tr>
-		</br>
-		
-		<tr>
-
-			 <td><a href="Adddelfooddetails">Add/Delete food details</a></td></br>
-		</tr>
-		</br>
-		<tr>
-			 <td><a href="modifycartdetails">Modify cart details</a></td></tr></br>
-			
-		</tr>
-		</br>
-		<tr>
-			<td><a href="confirmOrder">Confirm Order </a></td></br>
-		</tr>
-		
-		</br>
 		<tr>
 		<td><a href="Forgotpassword">Change Password</a></td></br>
 		</tr>

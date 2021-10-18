@@ -48,5 +48,21 @@ public List<CartBean> getCart(String userid){
             return e;    
         }    
     });    
-}    
+}
+public List<CartBean> getCartadmin(String userid){    
+    return template.query("select * from pos_tbl_cart_admin where userid = '"+userid+"'",new RowMapper<CartBean>(){    
+        public CartBean mapRow(ResultSet rs, int row) throws SQLException {    
+	CartBean e=new CartBean();    
+            e.setCartID(rs.getString(1));    
+            e.setUserID(rs.getString(2));    
+            e.setFoodID(rs.getString(3));    
+            e.setType(rs.getString(4));   
+            e.setQuantity(rs.getInt(5));    
+            e.setCost(rs.getDouble(6)); 
+            e.setOrderDate(rs.getDate(7));    
+            return e;    
+        }    
+    });    
+}
+
 }   

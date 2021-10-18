@@ -68,10 +68,18 @@
    <td><a href="deleteCart/${Cart.cartID}">Delete</a></td>  
    </tr>  
    </c:forEach>
+  
 				
 				
 
 				
+		</table>
+		<table style ="text-align: center">
+			<tr>
+			<td>
+			 <a href = "confirmOrder">Confirm order and pay</a>
+			 <td>
+			 <tr>
 		</table>
 		
 		<tr>
@@ -79,19 +87,7 @@
 		</tr>
 		</br>
 		
-		<tr>
 
-			 <td><a href="Adddelfooddetails">Add/Delete food details</a></td></br>
-		</tr>
-		</br>
-		<tr>
-			 <td><a href="modifycartdetails">Modify cart details</a></td></tr></br>
-
-			 <td><a href="modifycartdetails.jsp">Modify cart details</a></td></tr></br>
-
-			
-		</tr>
-		</br>
 		<tr>
 			<td><a href="confirmOrder">Confirm Order </a></td></br>
 		</tr>

@@ -41,7 +41,8 @@
 				href="index">Logout</a>
 		</div>
 	</div>
-
+	<h4>Total cost = ${total}</h4>
+<form method = "post" action = "payment">
 <center>
 <table cellspacing="20" cellpadding="20" border="3"
 			style="border-collapse: collapse" height="600">
@@ -58,6 +59,6 @@ Card Number:</td><td><input type="text" name="number" placeholder="Card Number" 
 <input type="submit" value="PAY" name="pay" placeholder="PAY" required style="width: 300; height: 30" /> </td></tr>
 </table>
 </center>
-					
+</form>					
 </body>
 </html>

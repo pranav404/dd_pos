@@ -1,6 +1,7 @@
 package com.dd_pos.service;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.dd_pos.bean.*;
@@ -75,6 +76,37 @@ public class cart {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public double orderCart(String userid,OrderBean ob,dbutil db) {
+		try {
+		
+		ArrayList<CartBean> cartlist = (ArrayList<CartBean>) listcartitems(userid,db);
+		OrderDAOClass odao = new OrderDAOClass();
+		odao.setTemplate(db.getTemplate());
+		store s = new store();
+		ArrayList<StoreBean> storelist = (ArrayList<StoreBean>)s.listStore(db);
+		double total = 0.0;
+		ob.setStoreid("On1000");
+		for(StoreBean sb:storelist) {
+			if(sb.getPincode().equals(ob.getPincode())) {
+				ob.setStoreid(sb.getStoreID());
+				break;
+			}
+		}
+		for(CartBean cb :cartlist) {
+			ob.setCartid(cb.getCartID());
+			odao.save(ob);
+			detelecart(cb.getCartID(),db);
+			total += cb.getCost();
+		}
+		return total;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return -10000000.2;
+		}
+		
 	}
 
 

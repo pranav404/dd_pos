@@ -1,3 +1,5 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -54,7 +56,6 @@
 						<th>Order Date</th>
 						<th>Store Id</th>
 						<th>Cart ID</th>
-						<th>Total Price</th>
 						<th>Street</th>
 						<th>City</th>
 						<th>State</th>
@@ -65,18 +66,17 @@
 					</tr>
 					<c:forEach var="status" items="${list}">
 						<tr>
-							<td>${status.orderID}</td>
-							<td>${status.orderDate}</td>
-							<td>${status.storeID}</td>
-							<td>${status.cartID}</td>
-							<td>${status.totalPrice}</td>
+							<td>${status.orderid}</td>
+							<td>${status.orderdate}</td>
+							<td>${status.storeid}</td>
+							<td>${status.cartid}</td>
 							<td>${status.street}</td>
-							<td>${status.City}</td>
-							<td>${status.State}</td>
-							<td>${status.Pincode}</td>
-							<td>${status.mobileNo}</td>
-							<td>${status.orderStatus}</td>
-							<td><a href="statuschange/${status.foodID}">Change</a></td>
+							<td>${status.city}</td>
+							<td>${status.state}</td>
+							<td>${status.pincode}</td>
+							<td>${status.mobileno}</td>
+							<td>${status.orderstatus}</td>
+							<td><a href="changestatus/${status.orderid}">Change</a></td>
 						</tr>
 					</c:forEach>
 				</table> <br />
