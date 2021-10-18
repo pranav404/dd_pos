@@ -3,7 +3,7 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,29 +35,30 @@
 }
 
 ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	width: 25%;
-	background-color: #f1f1f1;
-	position: fixed;
-	height: 100%;
-	overflow: auto;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
 }
 
 li a {
-	display: block;
-	font-size: 25px;
-	color: #000;
-	background-color: #04AA6D;
-	padding: 25px 40px;
-	text-decoration: none;
+  display: block;
+   font-size:25px;
+  color: #000;
+   background-color: #04AA6D;
+  padding: 25px 40px;
+  text-decoration: none;
 }
 
+
 li a:hover:not(.active) {
-	background-color: #555;
-	font-size: 25px;
-	color: white;
+  background-color: #555;
+  font-size:25px;
+  color: white;
 }
 
 .img {
@@ -67,37 +68,58 @@ li a:hover:not(.active) {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
 </style>
 </head>
 <body>
 
 	<div class="topnav">
-		<a href="Aboutus">About us</a> <a href="Contactus">Contact us</a>
-		<h3 style="color: white" align="center">Welcome Admin
-			${User.userID}</h3>
+		<a href="Aboutus">About us</a> <a href="Contactus">Contact
+			us</a>
+			 <h3 style="color:white" align="center">Welcome Admin ${User.userID}</h3>
 		<div class="topnav-right">
 			<a class="active" href="Admin">Home</a> <a class="active"
 				href="logout">Logout</a>
 		</div>
 	</div>
-
+	
 	<ul>
-		<li><a href="Adddelpizza">Add/Delete pizza store details</a></li>
-		<li><a href="viewmodpizza">View/Modify pizza store details</a></li>
-		<li><a href="Adddelfood">Add/Delete food details</a></li>
-		<li><a href="viewmodfood">View/Modify food details</a></li>
-		<li><a href="orderstatus">Change order status</a></li>
-		<li><a href="Forgotpassword">Change Password</a></li>
-	</ul>
-	<div class="img">
-		<div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
-			<h1>change status of ${orderid}</h1>
-			<form method="post" action="/dd_pos/statchanged">
-				<input type="Hidden" name="orderid" value=${orderid}> <input
-					type="text" name="status" placeholder="orderstatus" required>
-				<input type="submit" value="Change status">
-			</form>
-
-		</div>
+  <li><a href="Adddelpizza">Add/Delete pizza store details</a></li>
+  <li><a href="viewmodpizza">View/Modify pizza store details</a></li>
+  <li><a href="Adddelfood">Add/Delete food details</a></li>
+  <li><a href="viewmodfood">View/Modify food details</a></li>
+  <li><a href="orderstatus">Change order status</a></li>
+    <li><a href="Forgotpassword">Change Password</a></li>
+</ul>
+<div class="img">
+	<div style="margin-left:25%;padding:1px 16px;height:1000px">
+			<h1 align="center">Add/ Delete pizza store details</h1>
+				<table border="2" width="70%" cellpadding="2" align="center" style="font-size:28px; background-color:white">
+					<tr>
+						<th>Store Id</th>
+						<th>Name</th>
+						<th>Street</th>
+						<th>Mobile No</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Pincode</th>
+						<th>Delete</th>
+					</tr>
+					<c:forEach var="pizza" items="${list}">
+						<tr>
+							<td>${pizza.storeID}</td>
+							<td>${pizza.name }</td>
+							<td>${pizza.street }</td>
+							<td>${pizza.mobileNo}</td>
+							<td>${pizza.city}</td>
+							<td>${pizza.state }</td>
+							<td>${pizza.pincode}</td>
+							<td><a href="deletepizza/${pizza.storeID}">Delete</a></td>
+						</tr>
+					</c:forEach>
+				</table> 
+				
+				<br/> <div align="center"style="font-size:28px;"><a href="pizzaform">Add Pizza Details</a></div>
+				</div>
 </body>
 </html>
