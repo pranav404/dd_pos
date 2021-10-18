@@ -3,9 +3,14 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
-<style>
+<head>
+<meta charset="ISO-8859-1">
+</head>
+<body>
+	<style>
 .topnav {
 	overflow: hidden;
 	background-color: #333;
@@ -28,30 +33,70 @@
 .topnav-right {
 	float: right;
 }
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 25%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+li a {
+	display: block;
+	font-size: 25px;
+	color: #000;
+	background-color: #04AA6D;
+	padding: 25px 40px;
+	text-decoration: none;
+}
+
+li a:hover:not(.active) {
+	background-color: #555;
+	font-size: 25px;
+	color: white;
+}
+
+.img {
+	background-image:
+		url('https://wallpapersdsc.net/wp-content/uploads/2015/11/Pizza_Widescreen4.jpg');
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 </style>
 </head>
 <body>
 
 	<div class="topnav">
-		<a href="Aboutus">About us</a> <a href="Contactus">Contact
-			us</a>
-			<h6>Welcome User ${User.userID}</h6>
+		<a href="Aboutus">About us</a> <a href="Contactus">Contact us</a>
+		<h3 style="color: white" align="center">Welcome Admin
+			${User.userID}</h3>
 		<div class="topnav-right">
 			<a class="active" href="Admin">Home</a> <a class="active"
-				href="index">Logout</a>
+				href="logout">Logout</a>
 		</div>
 	</div>
+
+	<ul>
+		<li><a href="/dd_pos/Adddelpizza">Add/Delete pizza store details</a></li>
+		<li><a href="/dd_pos/viewmodpizza">View/Modify pizza store details</a></li>
+		<li><a href="/dd_pos/Adddelfood">Add/Delete food details</a></li>
+		<li><a href="/dd_pos/viewmodfood">View/Modify food details</a></li>
+		<li><a href="/dd_pos/orderstatus">Change order status</a></li>
+		<li><a href="/dd_pos/Forgotpassword">Change Password</a></li>
+	</ul>
+	<div class="img">
+		<div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+<h1 align="center">
+Edit Pizza Store
+</h1>
 	<form:form method="POST" action="/dd_pos/saveeditpizza" modelAttribute="editStore">
-		<table cellspacing="20" cellpadding="20" border="3"
-			style="border-collapse: collapse" height="600">
-
-			<tr align="center">
-				<td><a href="/dd_pos/Adddelpizza">Add/Delete pizza details</a></td>
-				<td rowspan=6 width="650">
-					<h3>Edit Food Item</h3>
-
-					<table>
-					<tr>  
+<table border="2" width="70%" cellpadding="2" align="center" style="font-size:28px; background-color:white">
+						<tr>  
         			<td></td>    
          			<td><form:hidden  path="storeID" /></td>  
          			</tr>
@@ -79,38 +124,14 @@
 							<td>Pincode :</td>
 							<td><form:input path="Pincode" /></td>
 						</tr>
-						<tr>
-							<td></td>
-							<td><input type="submit" value="Save" /></td>
+						<tr >
+							<td colspan="2" align="center"><input type="submit" value="Edit Save" /></td>
 						</tr>
 					</table>
 					</td>
 					
 					</form:form>
-			</tr>
-			
-			<tr>
-				<td><a href="/dd_pos/viewmodpizza">View/Modify pizza details</a></td>
-			</tr>
-			</br>
-			<tr>
-				<td><a href="/dd_pos/Adddelfood">Add/Delete food details </a></td>
-			</tr>
-			</br>
-			<tr>
-				<td><a href="/dd_pos/viewmodfood">View/Modify food details</a></td>
-			</tr>
-			</br>
-			<tr>
-				<td><a href="/dd_pos/orderstatus">Change order status</a></td>
-			</tr>
-			</br>
-			<tr>
-				<td><a href="dd_pos/changepassword">Change Password</a></td>
-			</tr>
-			</br>
 
-
-		</table>
-
+		</div>
+</body>
 </html>
