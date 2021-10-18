@@ -1,9 +1,28 @@
 package com.dd_pos.bean;
 
+import java.util.Date;
+
+import javax.validation.constraints.NotNull;
+
 public class OrderBean {
 	
-	private String street,city,state,pincode,mobileno,orderstatus,userid,orderdate,storeid,cartid,orderid;
-	
+	private String OrderID;
+	private String userID;
+	@NotNull (message="This is required field ")
+	private String orderDate;
+	private String storeID;
+	private String cartID;
+	private double totalPrice;
+	private String orderStatus;
+	@NotNull (message="This is required field ")
+	private String street;
+	@NotNull (message="This is required field ")
+	private String City;
+	@NotNull (message="This is required field ")
+	private String State;
+	private String Pincode;
+	@NotNull (message="This is required field ")
+	private String mobileNo;
 
 	public String getOrderid() {
 		return orderid;
