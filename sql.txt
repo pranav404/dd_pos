@@ -62,20 +62,16 @@ create table POS_TBL_User_Profile(
     alter table pos_tbl_cart add constraint fk1 foreign key(userid) references pos_tbl_user_credentials(userid);
     alter table pos_tbl_cart add foreign key(foodid) references pos_tbl_food(foodid);
     ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     -------------------Order table-------------------------------------------------------------------------------------------------------------------------------
     create table pos_tbl_order(orderid_seq int primary key auto_increment,userid varchar(10),orderDate date,storeid varchar(10),cartid varchar(10), orderstatus varchar(15), street varchar(50),city varchar(50), state varchar(50), pincode varchar(10),mobileno varchar(10));
     alter table pos_tbl_order auto_increment 1000;
-    
-    
-  
+    alter table pos_tbl_order add column orderid varchar(10);
+    alter table pos_tbl_order add unique(orderid);
+    alter table pos_tbl_order add foreign key(userid) references                    pos_tbl_user_credentials(userid);
+  alter table pos_tbl_order add foreign key(storeid) references pos_tbl_pizzastore(storeid);
+   alter table pos_tbl_order add foreign key(cartid) references pos_tbl_cart(cartid);
+--------------------------------------------------------------------------------------------------------------------------
+
+credit card table------------------------------------------------------------------------------------------------------
+create table pos_tbl_creditcard(creditcardnumber varchar(10),validfrom varchar(10),validto varchar(10), balance double, userid varchar(10));
