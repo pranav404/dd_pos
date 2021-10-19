@@ -73,7 +73,7 @@ li a:hover:not(.active) {
     <a href="Contactus">Contact us</a>
     <h3 style="color:white" align="center">Welcome Customer ${User.userID}</h3>
   <div class="topnav-right">
-  <a class="active" href="Customer">Home</a>
+  <a class="active" href="/dd_pos/Customer">Home</a>
     <a class="active" href="index">Logout</a>
   </div>
 </div>
