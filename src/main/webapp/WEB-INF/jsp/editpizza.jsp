@@ -102,27 +102,27 @@ Edit Pizza Store
          			</tr>
 						<tr>
 							<td>Name :</td>
-							<td><form:input path="Name" /></td>
+							<td><form:input path="Name" required="required"/></td>
 						</tr>
 						<tr>
 							<td>Street :</td>
-							<td><form:input path="Street" /></td>
+							<td><form:input path="Street" required="required" /></td>
 						</tr>
 						<tr>
 							<td>MobileNo :</td>
-							<td><form:input path="mobileNo" /></td>
+							<td><form:input path="mobileNo" required="required"/></td>
 						</tr>
 						<tr>
 							<td>City :</td>
-							<td><form:input path="City" /></td>
+							<td><form:input path="City" required="required"/></td>
 						</tr>
 						<tr>
 							<td>State :</td>
-							<td><form:input path="State" /></td>
+							<td><form:input path="State" required="required"/></td>
 						</tr>
 						<tr>
 							<td>Pincode :</td>
-							<td><form:input path="Pincode" /></td>
+							<td><form:input path="Pincode" required="required"/></td>
 						</tr>
 						<tr >
 							<td colspan="2" align="center"><input type="submit" value="Edit Save" /></td>
