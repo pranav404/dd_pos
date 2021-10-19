@@ -101,11 +101,11 @@ li a:hover:not(.active) {
 					</tr>
 					<tr>
 						<td>Order ID :</td>
-						<td><form:input path="orderID" /></td>
+						<td><form:input path="orderID" required="required"/></td>
 					</tr>
 					<tr>
 						<td>Order Status :</td>
-						<td><form:input path="orderStatus" /></td>
+						<td><form:input path="orderStatus" required="required"/></td>
 					</tr>
 
 					<tr>
