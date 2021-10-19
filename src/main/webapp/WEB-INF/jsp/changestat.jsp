@@ -68,6 +68,20 @@ li a:hover:not(.active) {
 	background-size: cover;
 }
 </style>
+<script type="text/javascript">  
+function validate(){  
+var status=document.f1.status.value;
+var s=false;  
+if(status==""){  
+document.getElementById("statuslocation").innerHTML=  
+"Please enter the order status";  
+s=false;
+}else{ 
+s=true;
+}
+return s;  
+}  
+</script>
 </head>
 <body>
 
@@ -92,9 +106,11 @@ li a:hover:not(.active) {
 	<div class="img">
 		<div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
 			<h1>change status of ${orderid}</h1>
-			<form method="post" action="/dd_pos/statchanged">
+			<form name= "f1" method="post" action="/dd_pos/statchanged"  onsubmit="return validate()">
 				<input type="Hidden" name="orderid" value=${orderid}> <input
-					type="text" name="status" placeholder="orderstatus" required>
+					type="text" name="status" placeholder="orderstatus" >
+					<span id="statuslocation" style="color:black ; background-color:white"></span> 
+
 				<input type="submit" value="Change status">
 			</form>
 
