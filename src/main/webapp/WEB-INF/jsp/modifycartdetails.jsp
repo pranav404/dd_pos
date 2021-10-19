@@ -31,29 +31,74 @@
 .topnav-right {
 	float: right;
 }
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 25%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+li a {
+	display: block;
+	font-size: 25px;
+	color: #000;
+	background-color: #04AA6D;
+	padding: 25px 80px;
+	text-decoration: none;
+}
+
+li a:hover:not(.active) {
+	background-color: #555;
+	font-size: 25px;
+	color: white;
+}
+
+.img {
+	background-image:
+		url('https://wallpapersdsc.net/wp-content/uploads/2015/11/Pizza_Widescreen4.jpg');
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 </style>
 </head>
 <body>
 
 	<div class="topnav">
-		<a href="Aboutus">About us</a> <a href="Contactus">Contact
-			us</a>
-			<h6>Welcome User ${User.userID}</h6>
+		<a href="Aboutus">About us</a> <a href="Contactus">Contact us</a>
+		<h3 style="color: white" align="center">Welcome Customer
+			${User.userID}</h3>
 		<div class="topnav-right">
 			<a class="active" href="Customer">Home</a> <a class="active"
-				href="index">Logout</a>
+				href="logout">Logout</a>
 		</div>
 	</div>
 
+	<ul>
+		<li><a href="/dd_pos/CustAddfood">Add food item to cart</a></li>
+		<li><a href="/dd_pos/ViewCartItems">View food items from cart</a></li>
+		<li><a href="/dd_pos/modifycartdetails">Modify cart details</a></li>
+		<li><a href="/dd_pos/confirmOrder">Confirm Order </a></li>
+	
+		<li><a href="/dd_pos/Forgotpassword">Change Password</a></li>
+	</ul>
+	<div class="img">
+		<div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+<h1 align="center">
+<table border="2" width="50%" cellpadding="2" align="center" style="font-size:28px; background-color:white">
+
+
+				
+				<td rowspan=7 width="650" align="center"><h2>Modify cart Details</h2>
+				<table border="2" width="70%" cellpadding="2">
 
 	
 	<form:form method="POST" action="/dd_pos/modifycart" modelAttribute = "modifycartdetails">
-		<table cellspacing="20" cellpadding="20" border="3"
-			style="border-collapse: collapse" height="600">
-			<tr>
-				<td><a href="CustAddfood">Add food item to cart</a></td>
-				<td rowspan=6 width="650"><h3>Modify Cart Details</h3>
-					<table border="2" width="70%" cellpadding="2">
+		
 
 
 						<td><form:hidden path = "cartID" /></td>
@@ -74,7 +119,7 @@
 			
 
 			<tr>
-				<td>Order Date :</td>
+				<td>OrderDate:</td>
 				<td><input type = "date" name = "orderdate" /></td>
 			</tr>
 			<tr>
@@ -83,29 +128,7 @@
 					value="Edit Save" /></td>
 			</tr>
 		</table>
-		<tr>
-			<td><a href="ViewCartItems">View food items from cart</a></td>
-			</br>
-		</tr>
-		</br>
-
-		<tr>
-			<td><a href="modifycartdetails">Modify cart details</a></td>
-		</tr>
-		</br>
-
-		</tr>
-		</br>
-		<tr>
-			<td><a href="confirmOrder">Confirm Order </a></td>
-			</br>
-		</tr>
-
-		</br>
-		<tr>
-			<td><a href="Forgotpassword">Change Password</a></td>
-			</br>
-		</tr>
+		
 		</table>
 </body>
 </form:form>
