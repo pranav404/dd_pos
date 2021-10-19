@@ -1,7 +1,7 @@
 <html>
 <body>
-	<form method="post" action="login">
-		<style>
+
+	<style>
 input[type="text"]:-ms-input-placeholder {
 	text-align: center;
 }
@@ -32,24 +32,46 @@ input[type="password"]:-ms-input-placeholder {
 	font-size: 17px;
 }
 </style>
-		<div class="img">
-			<div class="topnav">
-				<a href="Aboutus">About us</a> <a href="Contactus">Contact us</a>
-			</div>
+	<script type="text/javascript">
+		function validate() {
+			var username = document.f5.username.value;
+			var password = document.f5.password.value;
+			var s = false;
+			if (username == "") {
+				document.getElementById("usernamelocation").innerHTML = "Please enter the your username";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (password == "") {
+				document.getElementById("passwordlocation").innerHTML = "Please enter the password";
+				s = false;
+			} else {
+				s = true;
+			}
+			return s;
+		}
+	</script>
+	<div class="img">
+		<div class="topnav">
+			<a href="Aboutus">About us</a> <a href="Contactus">Contact us</a>
+		</div>
+		<form name="f5" method="post" action="login"
+			onsubmit="return validate()">
 			<table cellpadding="10" cellspacing="8" bgcolor="white" align="right">
-			<tr><td><h5>${message}</h5></td></tr>
 				<tr>
 					<th colspan="5" bgcolor=#D3D3D3 align="left" font-size=>Login</th>
 				</tr>
 				<tbody>
 					<tr>
 						<td><input type="text" name="username" placeholder="Username"
-							required style="width: 300; height: 30" required="required" /></td>
+							style="width: 300; height: 30" /> <span id="usernamelocation"
+							style="color: red; font-size: 20px"></span></td>
 					</tr>
 					<tr>
 						<td><input type="password" name="password"
-							placeholder="Password" required style="width: 300; height: 30"
-							required="required" /></td>
+							placeholder="Password" style="width: 300; height: 30" /> <span
+							id="passwordlocation" style="color: red; font-size: 20px"></span></td>
 					</tr>
 					<tr>
 						<td><input type="checkbox"
@@ -57,19 +79,18 @@ input[type="password"]:-ms-input-placeholder {
 							computer <input type="submit" value="Login" bgcolor=#008080 /></td>
 					</tr>
 					<tr>
-						<td>New User? <a href="NewUserSignup"> Click here to
+						<td>New User? <a href="NewUserSignup.jsp"> Click here to
 								register</a>
 						</td>
 					</tr>
 					<tr>
-						<td>Forgot your password? <a href="Forgotpassword">Click
+						<td>Forgot your password? <a href="Forgotpassword.jsp">Click
 								here to reset it</a></td>
 					</tr>
 				</tbody>
 
 			</table>
-
-		</div>
+	</div>
 
 	</form>
 </body>
