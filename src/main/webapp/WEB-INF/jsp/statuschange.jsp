@@ -76,7 +76,7 @@ li a:hover:not(.active) {
 		<h3 style="color: white" align="center">Welcome Admin
 			${User.userID}</h3>
 		<div class="topnav-right">
-			<a class="active" href="Admin">Home</a> <a class="active"
+			<a class="active" href="/dd_pos/Admin">Home</a> <a class="active"
 				href="logout">Logout</a>
 		</div>
 	</div>
@@ -101,11 +101,11 @@ li a:hover:not(.active) {
 					</tr>
 					<tr>
 						<td>Order ID :</td>
-						<td><form:input path="orderID" /></td>
+						<td><form:input path="orderID" required="required"/></td>
 					</tr>
 					<tr>
 						<td>Order Status :</td>
-						<td><form:input path="orderStatus" /></td>
+						<td><form:input path="orderStatus" required="required"/></td>
 					</tr>
 
 					<tr>

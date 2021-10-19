@@ -64,6 +64,7 @@ li a:hover:not(.active) {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
 </style>
 </head>
 <body>
@@ -73,7 +74,7 @@ li a:hover:not(.active) {
 		<h3 style="color: white" align="center">Welcome Customer
 			${User.userID}</h3>
 		<div class="topnav-right">
-			<a class="active" href="Customer">Home</a> <a class="active"
+			<a class="active" href="/dd_pos/Customer">Home</a> <a class="active"
 				href="logout">Logout</a>
 		</div>
 	</div>
@@ -114,13 +115,13 @@ li a:hover:not(.active) {
 			</tr>
 			<tr>
 				<td>quantity:</td>
-				<td><form:input path = "quantity" /></td>
+				<td><form:input path = "quantity" required="required" /></td>
 			</tr>
 			
 
 			<tr>
 				<td>OrderDate:</td>
-				<td><input type = "date" name = "orderdate" /></td>
+				<td><input type = "date" name = "orderdate" required /></td>
 			</tr>
 			<tr>
 
@@ -132,3 +133,4 @@ li a:hover:not(.active) {
 		</table>
 </body>
 </form:form>
+

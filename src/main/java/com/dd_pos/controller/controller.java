@@ -74,10 +74,22 @@ public class controller {
 		return "Contactus";
 	}
 	
+	@RequestMapping("/Admin")
+	public String home() {
+		return "Admin";
+		
+	}
+	@RequestMapping("/Customer")
+	public String home1() {
+		return "Customer";
+		
+	}
+	
 	@RequestMapping("/Aboutus")
 	public String aboutus() {
 		return "Aboutus";
 	}
+	
 	
 	//New User Signup
 	@RequestMapping("/NewUserSignup")

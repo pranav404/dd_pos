@@ -76,7 +76,7 @@ li a:hover:not(.active) {
 		<h3 style="color: white" align="center">Welcome Admin
 			${User.userID}</h3>
 		<div class="topnav-right">
-			<a class="active" href="Admin">Home</a> <a class="active"
+			<a class="active" href="/dd_pos/Admin">Home</a> <a class="active"
 				href="logout">Logout</a>
 		</div>
 	</div>
@@ -102,24 +102,24 @@ Edit Food Item
 						</tr>
 						<tr>
 							<td>Name :</td>
-							<td><form:input path="Name" /></td>
+							<td><form:input path="Name" required="required"/></td>
 						</tr>
 						<tr>
 							<td>Food Type :</td>
-							<td><form:input path="Type" /></td>
+							<td><form:input path="Type" required="required" /></td>
 						</tr>
 						<tr>
 							<td>Order Quantity :</td>
-							<td><form:input path="Quantity" /></td>
+							<td><form:input path="Quantity" required="required"/></td>
 						</tr>
 						<tr>
 						<tr>
 							<td>Food Size :</td>
-							<td><form:input path="Foodsize" /></td>
+							<td><form:input path="Foodsize" required="required" /></td>
 						</tr>
 						<tr>
 							<td>Price :</td>
-							<td><form:input path="price" /></td>
+							<td><form:input path="price" required="required"/></td>
 						</tr>
 
 						<tr >

@@ -76,7 +76,7 @@ li a:hover:not(.active) {
 		<h3 style="color: white" align="center">Welcome Admin
 			${User.userID}</h3>
 		<div class="topnav-right">
-			<a class="active" href="Admin">Home</a> <a class="active"
+			<a class="active" href="/dd_pos/Admin">Home</a> <a class="active"
 				href="logout">Logout</a>
 		</div>
 	</div>
@@ -101,27 +101,27 @@ li a:hover:not(.active) {
 					<tr>
 					<tr>
 						<td>Name :</td>
-						<td><form:input path="Name" /></td>
+						<td><form:input path="Name" required="required"/></td>
 					</tr>
 					<tr>
 						<td>Street :</td>
-						<td><form:input path="Street" /></td>
+						<td><form:input path="Street" required="required"/></td>
 					</tr>
 					<tr>
 						<td>MobileNo :</td>
-						<td><form:input path="mobileNo" /></td>
+						<td><form:input path="mobileNo" required="required" /></td>
 					</tr>
 					<tr>
 						<td>City :</td>
-						<td><form:input path="City" /></td>
+						<td><form:input path="City" required="required"/></td>
 					</tr>
 					<tr>
 						<td>State :</td>
-						<td><form:input path="State" /></td>
+						<td><form:input path="State" required="required"/></td>
 					</tr>
 					<tr>
 						<td>Pincode :</td>
-						<td><form:input path="Pincode" /></td>
+						<td><form:input path="Pincode" required="required"/></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit"
