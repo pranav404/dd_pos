@@ -68,6 +68,47 @@ li a:hover:not(.active) {
 	background-size: cover;
 }
 </style>
+	<script type="text/javascript">
+		function validate() {
+			var name = document.f4.Name.value;
+			var type = document.f4.Type.value;
+			var quantity = document.f4.Quantity.value;
+			var size = document.f4.Foodsize.value;
+			var price = document.f4.price.value;
+			var s = false;
+			if (name == "") {
+				document.getElementById("namelocation").innerHTML = "Please enter the your name";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (type == "") {
+				document.getElementById("typelocation").innerHTML = "Please enter the type";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (quantity == "") {
+				document.getElementById("quantitylocation").innerHTML = "Please enter the quantity";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (size == "") {
+				document.getElementById("sizelocation").innerHTML = "Please enter the size";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (price == "") {
+				document.getElementById("pricelocation").innerHTML = "Please enter the price";
+				s = false;
+			} else {
+				s = true;
+			}
+			return s;
+		}
+	</script>
 </head>
 <body>
 
@@ -76,7 +117,7 @@ li a:hover:not(.active) {
 		<h3 style="color: white" align="center">Welcome Admin
 			${User.userID}</h3>
 		<div class="topnav-right">
-			<a class="active" href="/dd_pos/Admin">Home</a> <a class="active"
+			<a class="active" href="Admin">Home</a> <a class="active"
 				href="logout">Logout</a>
 		</div>
 	</div>
@@ -91,38 +132,50 @@ li a:hover:not(.active) {
 	</ul>
 	<div class="img">
 		<div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
-<h1 align="center">
-Add Food
-</h1>
-	<form:form method="post" action="addfooditem" modelAttribute="foodbean">
-<table border="2" width="70%" cellpadding="2" align="center" style="font-size:28px; background-color:white">
-						<tr>
-					<td>Name :</td>
-					<td><form:input path="Name" required="required"/></td>
-				</tr>
-				<tr>
-					<td>Food Type :</td>
-					<td><form:input path="Type" required="required"/></td>
-				</tr>
-				<tr>
-					<td>Food Size :</td>
-					<td><form:input path="Foodsize" required="required"/></td>
-				</tr>
-				<tr>
-					<td>Order Quantity :</td>
-					<td><form:input path="Quantity" required="required"/></td>
-				</tr>
-				<tr>
-					<td>Price :</td>
-					<td><form:input path="price" required="required"/></td>
-				</tr>
+			<h1 align="center">Add Food</h1>
+			<form:form name="f4" method="post" action="addfooditem"
+				modelAttribute="foodbean" onsubmit="return validate()">
+				<table border="2" width="70%" cellpadding="2" align="center"
+					style="font-size: 28px; background-color: white">
+					<tr>
+						<td>Name :</td>
+						<td><form:input path="Name" /> <span id="namelocation"
+							style="color: red; font-size: 20px"></span></td>
+
+					</tr>
+					<tr>
+						<td>Food Type :</td>
+						<td><form:input path="Type" /> <span id="typelocation"
+							style="color: red; font-size: 20px"></span></td>
+					</tr>
+					<tr>
+						<td>Food Size :</td>
+						<td><form:input path="Foodsize" /> <span id="sizelocation"
+							style="color: red; font-size: 20px"></span></td>
 
 
-						<tr >
-							<td colspan="2" align="center"><input type="submit" value="Save" /></td>
-						</tr>
-					</table> <br />
-					</form:form>
+					</tr>
+					<tr>
+						<td>Order Quantity :</td>
+						<td><form:input path="Quantity" /> <span
+							id="quantitylocation" style="color: red; font-size: 20px"></span></td>
+
+					</tr>
+					<tr>
+						<td>Price :</td>
+						<td><form:input path="price" /> <span id="pricelocation"
+							style="color: red; font-size: 20px"></span></td>
+
+					</tr>
+
+
+					<tr>
+						<td colspan="2" align="center"><input type="submit"
+							value="Save" /></td>
+					</tr>
+				</table>
+				<br />
+			</form:form>
 
 		</div>
 </body>
