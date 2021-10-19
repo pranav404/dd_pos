@@ -82,12 +82,12 @@ li a:hover:not(.active) {
 	</div>
 
 	<ul>
-		<li><a href="Adddelpizza">Add/Delete pizza store details</a></li>
-		<li><a href="viewmodpizza">View/Modify pizza store details</a></li>
-		<li><a href="Adddelfood">Add/Delete food details</a></li>
-		<li><a href="viewmodfood">View/Modify food details</a></li>
-		<li><a href="orderstatus">Change order status</a></li>
-		<li><a href="Forgotpassword">Change Password</a></li>
+		<li><a href="/dd_pos/Adddelpizza">Add/Delete pizza store details</a></li>
+		<li><a href="/dd_pos/viewmodpizza">View/Modify pizza store details</a></li>
+		<li><a href="/dd_pos/Adddelfood">Add/Delete food details</a></li>
+		<li><a href="/dd_pos/viewmodfood">View/Modify food details</a></li>
+		<li><a href="/dd_pos/orderstatus">Change order status</a></li>
+		<li><a href="/dd_pos/Forgotpassword">Change Password</a></li>
 	</ul>
 	<div class="img">
 		<div style="margin-left: 25%; padding: 1px 16px; height: 1000px">

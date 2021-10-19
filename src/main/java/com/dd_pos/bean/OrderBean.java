@@ -5,11 +5,7 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 
 public class OrderBean {
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 1b7fe8ee82d8dfcd456e8aa85617e393c0e89c56
 	private String orderid;
 	private String userid;
 	@NotNull (message="This is required field ")
