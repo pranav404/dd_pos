@@ -84,8 +84,8 @@ li a:hover:not(.active) {
 	<h4>Total cost = ${total}</h4>
 <form method = "post" action = "payment">
 <center>
-<table cellspacing="20" cellpadding="20" border="3"
-			style="border-collapse: collapse" height="600">
+
+			<table border="2" width="70%" cellpadding="2" align="center" style="font-size:28px; background-color:white">
 <br><tr><td>
 Card Number:</td><td><input type="text" name="number" placeholder="Card Number" required style="width: 300; height: 30" /> </td></tr>
 <br>
