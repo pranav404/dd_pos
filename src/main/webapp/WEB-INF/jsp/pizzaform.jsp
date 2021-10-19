@@ -68,6 +68,54 @@ li a:hover:not(.active) {
 	background-size: cover;
 }
 </style>
+	<script type="text/javascript">
+		function validate() {
+			var name = document.f6.Name.value;
+			var Street = document.f6.Street.value;
+			var mobileNo = document.f6.mobileNo.value;
+			var City = document.f6.City.value;
+			var State = document.f6.State.value;
+			var Pincode = document.f6.Pincode.value;
+			var s = false;
+			if (name == "") {
+				document.getElementById("namelocation").innerHTML = "Please enter the your name";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (Street == "") {
+				document.getElementById("Streetlocation").innerHTML = "Please enter the Street";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (mobileNo == "") {
+				document.getElementById("mobileNolocation").innerHTML = "Please enter the mobileNo";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (City == "") {
+				document.getElementById("Citylocation").innerHTML = "Please enter the City";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (State == "") {
+				document.getElementById("Statelocation").innerHTML = "Please enter the State";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (Pincode == "") {
+				document.getElementById("Pincodelocation").innerHTML = "Please enter the Pincode";
+				s = false;
+			} else {
+				s = true;
+			}
+			return s;
+		}
+	</script>
 </head>
 <body>
 
@@ -76,16 +124,14 @@ li a:hover:not(.active) {
 		<h3 style="color: white" align="center">Welcome Admin
 			${User.userID}</h3>
 		<div class="topnav-right">
-			<a class="active" href="/dd_pos/Admin">Home</a> <a class="active"
+			<a class="active" href="Admin">Home</a> <a class="active"
 				href="logout">Logout</a>
 		</div>
 	</div>
 
 	<ul>
-		<li><a href="Adddelpizza">Add/Delete pizza store
-				details</a></li>
-		<li><a href="viewmodpizza">View/Modify pizza store
-				details</a></li>
+		<li><a href="Adddelpizza">Add/Delete pizza store details</a></li>
+		<li><a href="viewmodpizza">View/Modify pizza store details</a></li>
 		<li><a href="Adddelfood">Add/Delete food details</a></li>
 		<li><a href="viewmodfood">View/Modify food details</a></li>
 		<li><a href="orderstatus">Change order status</a></li>
@@ -94,34 +140,46 @@ li a:hover:not(.active) {
 	<div class="img">
 		<div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
 			<h1 align="center">Add Pizza Store</h1>
-			<form:form method="post" action="addpizzastore"
-				modelAttribute="storebean">
+			<form:form name="f6" method="post" action="addpizzastore"
+				modelAttribute="storebean" onsubmit="return validate()">
 				<table border="2" width="70%" cellpadding="2" align="center"
 					style="font-size: 28px; background-color: white">
 					<tr>
 					<tr>
 						<td>Name :</td>
-						<td><form:input path="Name" required="required"/></td>
+						<td><form:input path="Name" /> <span id="namelocation"
+							style="color: red; font-size: 20px"></span></td>
+						</td>
 					</tr>
 					<tr>
 						<td>Street :</td>
-						<td><form:input path="Street" required="required"/></td>
+						<td><form:input path="Street" /> <span id="Streetlocation"
+							style="color: red; font-size: 20px"></span></td>
+						</td>
 					</tr>
 					<tr>
 						<td>MobileNo :</td>
-						<td><form:input path="mobileNo" required="required" /></td>
+						<td><form:input path="mobileNo" /> <span
+							id="mobileNolocation" style="color: red; font-size: 20px"></span></td>
+						</td>
 					</tr>
 					<tr>
 						<td>City :</td>
-						<td><form:input path="City" required="required"/></td>
+						<td><form:input path="City" /> <span id="Citylocation"
+							style="color: red; font-size: 20px"></span></td>
+						</td>
 					</tr>
 					<tr>
 						<td>State :</td>
-						<td><form:input path="State" required="required"/></td>
+						<td><form:input path="State" /> <span id="Statelocation"
+							style="color: red; font-size: 20px"></span></td>
+						</td>
 					</tr>
 					<tr>
 						<td>Pincode :</td>
-						<td><form:input path="Pincode" required="required"/></td>
+						<td><form:input path="Pincode" /> <span id="Pincodelocation"
+							style="color: red; font-size: 20px"></span></td>
+						</td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit"
