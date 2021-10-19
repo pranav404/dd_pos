@@ -33,6 +33,40 @@
 .topnav-right {
   float: right;
 }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+   font-size:25px;
+  color: #000;
+   background-color: #04AA6D;
+  padding: 30px 115px;
+  text-decoration: none;
+}
+
+
+li a:hover:not(.active) {
+  background-color: #555;
+  font-size:25px;
+  color: white;
+}
+
+.img {
+	background-image:
+		url('https://wallpapersdsc.net/wp-content/uploads/2015/11/Pizza_Widescreen4.jpg');
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 </style>
 </head>
 <body>
@@ -40,20 +74,32 @@
 <div class="topnav">
   <a href="Aboutus">About us</a>
     <a href="Contactus">Contact us</a>
-    <h6>Welcome User ${User.userID}</h6>
+    <h3 style="color:white" align="center">Welcome Customer ${User.userID}</h3>
   <div class="topnav-right">
-  <a class="active" href="Admin">Home</a>
+  <a class="active" href="Customer">Home</a>
     <a class="active" href="index">Logout</a>
   </div>
 </div>
-<table cellspacing="20" cellpadding="20" border="3"
-		style="border-collapse: collapse" height="600">
+<div class="img">
+<div style="margin-left:0%;padding:1px 16px;height:1000px">
+<ul>
+<li><a href="CustAddfood">Add Food items to cart</a><li>
+  <li><a href="viewcartitems">View food items from cart</a></li>
+ 
+  <li><a href="confirmOrder">Confirm Order </a></li>
+    <li><a href="Forgotpassword">Change Password</a></li>
+</ul>
+<div class="img">
+<div style="margin-left:25%;padding:1px 16px;height:1000px">
+<table border="2" width="70%" cellpadding="2" align="center" style="font-size:28px; background-color:white">
+
+
 		<tr>
 			
-			<td> <a href="CustAddfood">Add Food items to cart</a></td></br>
+			
 			<td rowspan=7 width="650"><h2></h2>
 				<table border="2" width="70%" cellpadding="2">
-				<tr><th>CartId</th><th>Type</th><th>Quantity</th><th>Size And Price</th><th>Order Date</th><th>Edit</th><th>Delete</th></tr> 
+				<tr><th>CartId</th><th>foodID</th><th>userID</th><th>Type</th><th>Quantity</th><th>cost</th><th>Order Date</th><th>Edit</th><th>Delete</th></tr> 
 				<c:forEach var="Cart" items="${list}">   
    <tr>  
    <td>${Cart.cartID}</td>
@@ -82,20 +128,7 @@
 			 <tr>
 		</table>
 		
-		<tr>
-			<td><a href="ViewCartItems">View food items from cart</a></td></br>
-		</tr>
-		</br>
 		
-
-		<tr>
-			<td><a href="confirmOrder">Confirm Order </a></td></br>
-		</tr>
-		
-		</br>
-		<tr>
-		<td><a href="Forgotpassword">Change Password</a></td></br>
-		</tr>
 
 
 
