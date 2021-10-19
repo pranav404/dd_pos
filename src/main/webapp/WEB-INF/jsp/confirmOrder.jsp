@@ -28,19 +28,59 @@
 
 .topnav-right {
 	float: right;
+	
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+   font-size:25px;
+  color: #000;
+   background-color: #04AA6D;
+  padding: 30px 115px;
+  text-decoration: none;
+}
+
+
+li a:hover:not(.active) {
+  background-color: #555;
+  font-size:25px;
+  color: white;
+}
+
+.img {
+	background-image:
+		url('https://wallpapersdsc.net/wp-content/uploads/2015/11/Pizza_Widescreen4.jpg');
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 </style>
 </head>
 <body>
 
-	<div class="topnav">
-		<a href="Aboutus">About us</a> <a href="Contactus">Contact
-			us</a>
-		<div class="topnav-right">
-			<a class="active" href="Customer">Home</a> <a class="active"
-				href="index">Logout</a>
-		</div>
-	</div>
+<div class="topnav">
+  <a href="Aboutus">About us</a>
+    <a href="Contactus">Contact us</a>
+    <h3 style="color:white" align="center">Welcome Customer ${User.userID}</h3>
+  <div class="topnav-right">
+  <a class="active" href="Customer">Home</a>
+    <a class="active" href="index">Logout</a>
+  </div>
+</div>
+<div class="img">
+<div style="margin-left:0%;padding:1px 16px;height:1000px">
+
+
 	<h4>Total cost = ${total}</h4>
 <form method = "post" action = "payment">
 <center>
