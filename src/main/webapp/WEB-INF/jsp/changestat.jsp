@@ -76,7 +76,7 @@ li a:hover:not(.active) {
 		<h3 style="color: white" align="center">Welcome Admin
 			${User.userID}</h3>
 		<div class="topnav-right">
-			<a class="active" href="Admin">Home</a> <a class="active"
+			<a class="active" href="/dd_pos/Admin">Home</a> <a class="active"
 				href="logout">Logout</a>
 		</div>
 	</div>
