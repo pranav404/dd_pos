@@ -33,10 +33,12 @@ public class User {
 			
 		}
 	}
-	public String changePassword(CredentialsBean c,String password,dbutil db) {
+	public String changePassword(String username,String password,dbutil db) {
+		CredentialsBean c = new CredentialsBean();
+		c.setuserID(username);
+		c.setPassword(password);
 		CredentialsDAOClass dao = new CredentialsDAOClass();
 		dao.setTemplate(db.getTemplate());
-		c.setPassword(password);
 		int i = dao.update(c);
 		if(i>0) {
 			return "SUCESS";

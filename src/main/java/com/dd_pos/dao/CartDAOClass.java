@@ -64,5 +64,9 @@ public List<CartBean> getCartadmin(String userid){
         }    
     });    
 }
+public int addCartAdmin(CartBean p) {
+	String sql="insert into pos_tbl_cart_admin values('"+p.getCartID()+"','"+p.getUserID()+"','"+p.getFoodID()+"','"+p.getType()+"','"+p.getQuantity()+"','"+p.getCost()+"','"+p.getOrderDate()+"')";
+    return template.update(sql);  
+}
 
 }   

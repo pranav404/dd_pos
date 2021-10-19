@@ -56,12 +56,12 @@ input[type="password"]:-ms-input-placeholder {
 							computer <input type="submit" value="Login" bgcolor=#008080 /></td>
 					</tr>
 					<tr>
-						<td>New User? <a href="NewUserSignup.jsp"> Click here to
+						<td>New User? <a href="NewUserSignup"> Click here to
 								register</a>
 						</td>
 					</tr>
 					<tr>
-						<td>Forgot your password? <a href="Forgotpassword.jsp">Click
+						<td>Forgot your password? <a href="Forgotpassword">Click
 								here to reset it</a></td>
 					</tr>
 				</tbody>

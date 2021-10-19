@@ -37,6 +37,7 @@ input[type="password"]:-ms-input-placeholder {
 				<a href="Aboutus">About us</a> <a href="Contactus">Contact us</a>
 			</div>
 			<table cellpadding="10" cellspacing="8" bgcolor="white" align="right">
+			<tr><td><h5>${message}</h5></td></tr>
 				<tr>
 					<th colspan="5" bgcolor=#D3D3D3 align="left" font-size=>Login</th>
 				</tr>
@@ -56,12 +57,12 @@ input[type="password"]:-ms-input-placeholder {
 							computer <input type="submit" value="Login" bgcolor=#008080 /></td>
 					</tr>
 					<tr>
-						<td>New User? <a href="NewUserSignup.jsp"> Click here to
+						<td>New User? <a href="NewUserSignup"> Click here to
 								register</a>
 						</td>
 					</tr>
 					<tr>
-						<td>Forgot your password? <a href="Forgotpassword.jsp">Click
+						<td>Forgot your password? <a href="Forgotpassword">Click
 								here to reset it</a></td>
 					</tr>
 				</tbody>

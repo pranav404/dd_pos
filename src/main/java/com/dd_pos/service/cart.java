@@ -33,6 +33,11 @@ public class cart {
 		
 		
 	}
+	public int addcartadmin(CartBean cb,dbutil db) {
+		CartDAOClass cdao = new CartDAOClass();
+		cdao.setTemplate(db.getTemplate());
+		return cdao.addCartAdmin(cb);
+	}
 	public boolean modifycartdetails(CartBean cb,dbutil db) {
 		try {
 			CartDAOClass sdao = new CartDAOClass();
@@ -77,6 +82,19 @@ public class cart {
 		}
 		return false;
 	}
+	public boolean detelecartadmin(String cartID, dbutil db) {
+		// TODO Auto-generated method stub
+		try {
+			CartDAOClass cdao = new CartDAOClass();
+			cdao.setTemplate(db.getTemplate());
+			cdao.delete(cartID);
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	public double orderCart(String userid,OrderBean ob,dbutil db) {
 		try {
@@ -99,6 +117,7 @@ public class cart {
 			odao.save(ob);
 			detelecart(cb.getCartID(),db);
 			total += cb.getCost();
+			addcartadmin(cb,db);
 		}
 		return total;
 		}

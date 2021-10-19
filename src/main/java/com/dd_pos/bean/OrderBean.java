@@ -6,23 +6,22 @@ import javax.validation.constraints.NotNull;
 
 public class OrderBean {
 	
-	private String OrderID;
-	private String userID;
+	private String orderid;
+	private String userid;
 	@NotNull (message="This is required field ")
-	private String orderDate;
-	private String storeID;
-	private String cartID;
-	private double totalPrice;
-	private String orderStatus;
+	private String orderdate;
+	private String storeid;
+	private String cartid;
+	private String orderstatus;
 	@NotNull (message="This is required field ")
 	private String street;
 	@NotNull (message="This is required field ")
-	private String City;
+	private String city;
 	@NotNull (message="This is required field ")
-	private String State;
-	private String Pincode;
+	private String state;
+	private String pincode;
 	@NotNull (message="This is required field ")
-	private String mobileNo;
+	private String mobileno;
 
 	public String getOrderid() {
 		return orderid;

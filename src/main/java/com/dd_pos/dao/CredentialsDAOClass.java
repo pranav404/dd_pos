@@ -30,7 +30,7 @@ public int delete(int UserID){
     return template.update(sql);    
 }    
 public int update(CredentialsBean p){    
-    String sql="update POS_TBL_User_Credentials set UserID="+p.getuserID()+",Password="+p.getPassword()+",Usertype="+p.getuserType()+",Loginstatus="+p.getloginStatus()+" where UserID = "+p.getuserID()+"";    
+    String sql="update POS_TBL_User_Credentials set UserID='"+p.getuserID()+"',Password='"+p.getPassword()+"' where UserID = '"+p.getuserID()+"'";    
     return template.update(sql);    
 }
 public int changepass(CredentialsBean p) {

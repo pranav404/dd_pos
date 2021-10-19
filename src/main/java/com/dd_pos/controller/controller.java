@@ -149,13 +149,28 @@ public class controller {
 	
 		//change password
 	@RequestMapping("/Forgotpassword")
-	public String changepass(Model model,@PathVariable String userID) {
-			CredentialsBean sb = new CredentialsBean();
-			sb.setuserID(userID);
-			model.addAttribute("changepass", sb);
-		return "index";
+	public String changepass(Model model) {
+		return "changepassword";
 	}
 	
+	@RequestMapping("/changepass")
+	public String changing(HttpServletRequest req,Model model) {
+		String message = "";
+		try {
+			String username = req.getParameter("username");
+			String password = req.getParameter("password");
+			User u = new User();
+			message = u.changePassword(username, password, db);
+			model.addAttribute("message", message);
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			message = "Fail";
+			
+		}
+		return "index";
+	}
 	//Admin Part-----------------------------------------------------------------------------------------------------------------
 	
 	//Adding or deleting pizza details

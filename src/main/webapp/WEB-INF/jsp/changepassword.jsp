@@ -36,19 +36,19 @@
 <body>
 
 	<div class="topnav">
-		<a href="Aboutus">About us</a> <a href="Contactus.jsp">Contact
+		<a href="Aboutus">About us</a> <a href="Contactus">Contact
 			us</a>
 		<div class="topnav-right">
-			<a class="active" href="Admin.jsp">Home</a> <a class="active"
+			<a class="active" href="Admin">Home</a> <a class="active"
 				href="index">Logout</a>
 		</div>
 	</div>
-<form method="post" action="adddelfooditem"> 
+<form method="post" action="changepass"> 
 	<table cellspacing="20" cellpadding="20" border="3"
 		style="border-collapse: collapse" height="600">
 
 		<tr>
-			<td><a href="Adddelpizza">Add/Delete pizza details</a></td>
+			
 			<td rowspan=6 width="650">
 						<table cellpadding="10" cellspacing="8" bgcolor="white" align="center">
 			<tr>
@@ -56,37 +56,18 @@
 			</tr>
 			<tr>
 				<td>Username :</td>
-				<td><input path="Username" /></td>
+				<td><input type = "text" name="username" /></td>
 			</tr>
 			<tr>
 				<td>New Password:</td>
-				<td><input path="Password" /></td>
+				<td><input type ="password" name="password" /></td>
 			</tr>
 			<td><input type="submit" value="Update" /></td>
 			</tr>
 		</table><br /> 
 				</tr>
 		</br>
-		<tr>
-			<td><a href="viewmodpizza">View/Modify pizza details</a></td>
-		</tr>
-		</br>
-		<tr>
-			<td><a href="Adddelfood">Add/Delete food details </a></td>
-		</tr>
-		</br>
-		<tr>
-			<td><a href="viewmodfood">View/Modify food details</a></td>
-		</tr>
-		</br>
-		<tr>
-			<td><a href="orderstatus">Change order status</a></td>
-		</tr>
-		</br>
-		<tr>
-			<td><a href="changepassword">Change Password</a></td>
-		</tr>
-		</br>
+		
 
 
 	</table>

@@ -2,6 +2,8 @@ package com.dd_pos.bean;
 import java.util.Date;
 
 import javax.validation.constraints.NotNull;
+
+import org.springframework.lang.NonNull;
 public class CartBean {
 	
 	private String cartID;
