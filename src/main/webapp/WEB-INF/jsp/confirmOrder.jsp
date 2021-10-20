@@ -65,6 +65,48 @@ li a:hover:not(.active) {
 	background-size: cover;
 }
 </style>
+<script type="text/javascript">
+		function validate() {
+			var number = document.c4.number.value;
+			var validfrom = document.c4.validfrom.value;
+			var validto = document.c4.validto.value;
+			var Balance = document.c4.Balance.value;
+			
+			
+			var s = false;
+			if (number == "" ) {
+				document.getElementById("numberlocation").innerHTML = "Please enter the Credit Card Number";
+				s = false;
+			} else {
+				document.getElementById("numberlocation").innerHTML = "";
+				s = true;
+			}
+			if (validfrom == "") {
+				document.getElementById("validfromlocation").innerHTML = "Validfrom is mandatory";
+				s = false;
+			} else {
+				document.getElementById("validfromlocation").innerHTML = "";
+				s = true;
+			}
+			if (validto == "") {
+				document.getElementById("validtolocation").innerHTML = "Validto is mandatory";
+				s = false;
+			} else {
+				document.getElementById("validtolocation").innerHTML = "";
+				s = true;
+			}
+			if (Balance == "") {
+				document.getElementById("balancelocation").innerHTML = "Please enter the balance";
+				s = false;
+			} else {
+				document.getElementById("balancelocation").innerHTML = "";
+				s = true;
+			}
+			return s;
+		}
+	</script>
+	
+
 </head>
 <body>
 
@@ -82,17 +124,23 @@ li a:hover:not(.active) {
 
 
 	<h4>Total cost = ${total}</h4>
-<form method = "post" action = "payment">
+	
+<form name="c4" method = "post" action = "payment" onsubmit="return validate()">
 <center>
 
 			<table border="2" width="70%" cellpadding="2" align="center" style="font-size:28px; background-color:white">
 <br><tr><td>
-Card Number:</td><td><input type="text" name="number" placeholder="Card Number" required style="width: 300; height: 30" /> </td></tr>
+
+Card Number:</td><td><input type="text" name="number" placeholder="Card Number" style="width: 300; height: 30" />
+<span id="numberlocation"style="color: red; font-size: 20px"></span> </td></tr>
 <br>
 <br>
-<tr><td>Valid From:</td><td><input type="text" name="validfrom" placeholder="Valid From" required style="width: 300; height: 30" /> </td></tr>
-<tr><td>Valid To:</td><td><input type="text" name="validto" placeholder="Valid to" required style="width: 300; height: 30" /> </td></tr>
-<tr> <td>Balance</td><td><input type="number" name="Balance" placeholder="Balance" required style="width: 300; height: 30" /> </td></tr>
+<tr><td>Valid From:</td><td><input type="text" name="validfrom" placeholder="Valid From" style="width: 300; height: 30" /> 
+<span id="validfromlocation"style="color: red; font-size: 20px"></span></td></tr>
+<tr><td>Valid To:</td><td><input type="text" name="validto" placeholder="Valid to"  style="width: 300; height: 30" />
+<span id="validtolocation"style="color: red; font-size: 20px"></span> </td></tr>
+<tr> <td>Balance</td><td><input type="number" name="Balance" placeholder="Balance"  style="width: 300; height: 30" />
+<span id="balancelocation"style="color: red; font-size: 20px"></span> </td></tr>
 <br>
 <br>
 <tr><td colspan="2" align="center">
