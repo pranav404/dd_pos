@@ -82,20 +82,26 @@ document.getElementById("namelocation").innerHTML=
 "Please enter the your name";  
 s=false;
 }else{ 
+	document.getElementById("namelocation").innerHTML=  
+		"";  
 s=true;
 }
 if(Street==""){  
 	document.getElementById("Streetlocation").innerHTML=  
 	"Please enter the Street";  
 	s=false;
-	}else{ 
+	}else{
+		document.getElementById("Streetlocation").innerHTML=  
+			"";
 	s=true;
 	}
 if(mobileNo==""){  
 	document.getElementById("mobileNolocation").innerHTML=  
 	"Please enter the mobileNo";  
 	s=false;
-	}else{ 
+	}else{
+		document.getElementById("mobileNolocation").innerHTML=  
+			"";  
 	s=true;
 	}
 if(City==""){  
@@ -103,6 +109,8 @@ if(City==""){
 	"Please enter the City";  
 	s=false;
 	}else{ 
+		document.getElementById("Citylocation").innerHTML=  
+			"";
 	s=true;
 	}
 if(State==""){  
@@ -110,6 +118,8 @@ if(State==""){
 	"Please enter the State";  
 	s=false;
 	}else{ 
+		document.getElementById("Statelocation").innerHTML=  
+			""; 
 	s=true;
 	}
 if(Pincode==""){  
@@ -117,6 +127,8 @@ if(Pincode==""){
 	"Please enter the Pincode";  
 	s=false;
 	}else{ 
+		document.getElementById("Pincodelocation").innerHTML=  
+			""; 
 	s=true;
 	}
 return s;  
@@ -148,7 +160,7 @@ return s;
 <h1 align="center">
 Edit Pizza Store
 </h1>
-	<form:form name="f3" method="POST" action="/dd_pos/saveeditpizza" modelAttribute="editStore"onsubmit="return validate()">
+	<form:form name="f3" method="POST" action="/dd_pos/saveeditpizza" modelAttribute="editStore" onsubmit="return validate()">
 <table border="2" width="70%" cellpadding="2" align="center" style="font-size:28px; background-color:white">
 						<tr>  
         			<td></td>    
