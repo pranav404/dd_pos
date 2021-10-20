@@ -97,8 +97,31 @@ li a:hover:not(.active) {
 				<td rowspan=7 width="650" align="center"><h2>Modify cart Details</h2>
 				<table border="2" width="70%" cellpadding="2">
 
+	<script type="text/javascript">
+		function validate() {
+			var quantity = document.c3.quantity.value;
+			var orderdate = document.c3.orderdate.value;
+			
+			var s = false;
+			if (quantity == "" || quantity == "0") {
+				document.getElementById("quantitylocation").innerHTML = "Please enter the quantity";
+				s = false;
+			} else {
+				document.getElementById("quantitylocation").innerHTML = "";
+				s = true;
+			}
+			if (orderdate == "") {
+				document.getElementById("orderdatelocation").innerHTML = "Please enter the orderdate";
+				s = false;
+			} else {
+				document.getElementById("orderdatelocation").innerHTML = "";
+				s = true;
+			}
+			return s;
+		}
+	</script>
 	
-	<form:form method="POST" action="/dd_pos/modifycart" modelAttribute = "modifycartdetails">
+	<form:form name="c3" method="POST" action="/dd_pos/modifycart" modelAttribute = "modifycartdetails" onsubmit="return validate()">
 		
 
 
@@ -115,22 +138,28 @@ li a:hover:not(.active) {
 			</tr>
 			<tr>
 				<td>quantity:</td>
-				<td><form:input path = "quantity" required="required" /></td>
+				<td><form:input path = "quantity" required="required" />
+				<span id="quantitylocation"style="color: red; font-size: 20px"></span></td>
 			</tr>
 			
 
 			<tr>
 				<td>OrderDate:</td>
-				<td><input type = "date" name = "orderdate" required /></td>
+				<td><input type = "date" name = "orderdate"  />
+				<span id="orderdatelocation"style="color: red; font-size: 20px"></span></td>
 			</tr>
 			<tr>
 
 				<td colspan="2" align="center"><input type="submit"
 					value="Edit Save" /></td>
 			</tr>
+			</form:form>
 		</table>
 		
 		</table>
+		
 </body>
-</form:form>
+
+
+</html>
 
