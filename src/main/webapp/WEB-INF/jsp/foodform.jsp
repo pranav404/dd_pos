@@ -80,30 +80,35 @@ li a:hover:not(.active) {
 				document.getElementById("namelocation").innerHTML = "Please enter the your name";
 				s = false;
 			} else {
+				document.getElementById("namelocation").innerHTML = "";
 				s = true;
 			}
 			if (type == "") {
 				document.getElementById("typelocation").innerHTML = "Please enter the type";
 				s = false;
 			} else {
+				document.getElementById("typelocation").innerHTML = "";
 				s = true;
 			}
 			if (quantity == "") {
 				document.getElementById("quantitylocation").innerHTML = "Please enter the quantity";
 				s = false;
 			} else {
+				document.getElementById("quantitylocation").innerHTML = "";
 				s = true;
 			}
 			if (size == "") {
 				document.getElementById("sizelocation").innerHTML = "Please enter the size";
 				s = false;
 			} else {
+				document.getElementById("sizelocation").innerHTML = "";
 				s = true;
 			}
 			if (price == "") {
 				document.getElementById("pricelocation").innerHTML = "Please enter the price";
 				s = false;
 			} else {
+				document.getElementById("pricelocation").innerHTML = "";
 				s = true;
 			}
 			return s;
