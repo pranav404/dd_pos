@@ -68,6 +68,62 @@ li a:hover:not(.active) {
 	background-size: cover;
 }
 </style>
+<script type="text/javascript">  
+function validate(){  
+var name=document.f2.Name.value;
+var type=document.f2.Type.value;
+var quantity=document.f2.Quantity.value;
+var size=document.f2.Foodsize.value;
+var price=document.f2.price.value;
+var s=false;  
+if(name==""){  
+document.getElementById("namelocation").innerHTML=  
+"Please enter the your name";  
+s=false;
+}else{ 
+	document.getElementById("namelocation").innerHTML=  
+		""; 
+s=true;
+}
+if(type==""){  
+	document.getElementById("typelocation").innerHTML=  
+	"Please enter the type";  
+	s=false;
+	}else{ 
+		document.getElementById("typelocation").innerHTML=  
+			""; 
+	s=true;
+	}
+if(quantity==""){  
+	document.getElementById("quantitylocation").innerHTML=  
+	"Please enter the quantity";  
+	s=false;
+	}else{ 
+		document.getElementById("quantitylocation").innerHTML=  
+			"";
+	s=true;
+	}
+if(size==""){  
+	document.getElementById("sizelocation").innerHTML=  
+	"Please enter the size";  
+	s=false;
+	}else{ 
+		document.getElementById("sizelocation").innerHTML=  
+			"";
+	s=true;
+	}
+if(price==""){  
+	document.getElementById("pricelocation").innerHTML=  
+	"Please enter the price";  
+	s=false;
+	}else{
+		document.getElementById("pricelocation").innerHTML=  
+			""; 
+	s=true;
+	}
+return s;  
+}  
+</script>
 </head>
 <body>
 
@@ -76,7 +132,7 @@ li a:hover:not(.active) {
 		<h3 style="color: white" align="center">Welcome Admin
 			${User.userID}</h3>
 		<div class="topnav-right">
-			<a class="active" href="/dd_pos/Admin">Home</a> <a class="active"
+			<a class="active" href="Admin">Home</a> <a class="active"
 				href="logout">Logout</a>
 		</div>
 	</div>
@@ -94,7 +150,7 @@ li a:hover:not(.active) {
 <h1 align="center">
 Edit Food Item
 </h1>
-<form:form method="POST" action="/dd_pos/saveeditfood" modelAttribute="editfood">
+<form:form name="f2" method="POST" action="/dd_pos/saveeditfood" modelAttribute="editfood" onsubmit="return validate()">
 <table border="2" width="70%" cellpadding="2" align="center" style="font-size:28px; background-color:white">
 						<tr>
 							<td></td>
@@ -102,24 +158,30 @@ Edit Food Item
 						</tr>
 						<tr>
 							<td>Name :</td>
-							<td><form:input path="Name" required="required"/></td>
+							<td><form:input path="Name" />
+							<span id="namelocation" style="color:red; font-size:20px"></span></td>
 						</tr>
 						<tr>
 							<td>Food Type :</td>
-							<td><form:input path="Type" required="required" /></td>
+							<td><form:input path="Type" />
+							<span id="typelocation" style="color:red;font-size:20px"></span></td>
+							
 						</tr>
 						<tr>
 							<td>Order Quantity :</td>
-							<td><form:input path="Quantity" required="required"/></td>
+							<td><form:input path="Quantity" />
+							<span id="quantitylocation" style="color:red;font-size:20px"></span></td>
 						</tr>
 						<tr>
 						<tr>
 							<td>Food Size :</td>
-							<td><form:input path="Foodsize" required="required" /></td>
+							<td><form:input path="Foodsize" />
+							<span id="sizelocation" style="color:red;font-size:20px"></span></td>
 						</tr>
 						<tr>
 							<td>Price :</td>
-							<td><form:input path="price" required="required"/></td>
+							<td><form:input path="price"/>
+							<span id="pricelocation" style="color:red;font-size:20px"></span></td>
 						</tr>
 
 						<tr >

@@ -32,6 +32,26 @@
 	float: right;
 }
 </style>
+	<script type="text/javascript">
+		function validate() {
+			var username = document.f8.username.value;
+			var password = document.f8.password.value;
+			var s = false;
+			if (username == "") {
+				document.getElementById("usernamelocation").innerHTML = "Please enter the your username";
+				s = false;
+			} else {
+				s = true;
+			}
+			if (password == "") {
+				document.getElementById("passwordlocation").innerHTML = "Please enter the password";
+				s = false;
+			} else {
+				s = true;
+			}
+			return s;
+		}
+	</script>
 </head>
 <body>
 
@@ -43,7 +63,7 @@
 				href="index">Logout</a>
 		</div>
 	</div>
-<form method="post" action="changepass"> 
+<form name="f8" method="post" action="changepass" onsubmit="return validate()"> 
 	<table cellspacing="20" cellpadding="20" border="3"
 		style="border-collapse: collapse" height="600">
 
@@ -56,11 +76,13 @@
 			</tr>
 			<tr>
 				<td>Username :</td>
-				<td><input type = "text" name="username" /></td>
+				<td><input type = "text" name="username" /><span id="usernamelocation"
+				style="color: red; font-size: 20px"></span></td>
 			</tr>
 			<tr>
 				<td>New Password:</td>
-				<td><input type ="password" name="password" /></td>
+				<td><input type ="password" name="password" /><span
+			        id="passwordlocation" style="color: red; font-size: 20px"></span></td>
 			</tr>
 			<td><input type="submit" value="Update" /></td>
 			</tr>
