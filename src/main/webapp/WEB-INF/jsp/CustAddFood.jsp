@@ -96,7 +96,31 @@ li a:hover:not(.active) {
 			
 			<td rowspan=7 width="650" align="center"><h2>Please Select the Food you want!</h2>
 				<table border="2" width="70%" cellpadding="2">
-<form action="saveaddeditem" method = "post">
+				<script type="text/javascript">
+		function validate() {
+			var quantity = document.c1.quantity.value;
+			var orderdate = document.c1.orderdate.value;
+			
+			var s = false;
+			if (quantity == "" || quantity == "0") {
+				document.getElementById("quantitylocation").innerHTML = "Please enter the quantity";
+				s = false;
+				return s;
+			} else {
+				s = true;
+			}
+			if (orderdate == "" ) {
+				document.getElementById("orderdatelocation").innerHTML = "Please enter the orderdate";
+				s = false;
+				return s;
+			} else {
+				s = true;
+			}
+			return s;
+		}
+	</script>
+
+<form name="c1" action="saveaddeditem" method = "post" onsubmit="return validate()">
 <table>
   
 <tr>
@@ -112,14 +136,17 @@ li a:hover:not(.active) {
   
   <tr>    
           <td>Quantity:</td>    
-          <td><input type ="number" name="quantity" required="required"  /></td>  
+          <td><input type ="number" name="quantity"   />
+          <span id="quantitylocation"style="color: red; font-size: 20px"></span></td>  
          </tr>
          <tr>
          
          <tr>
         <td>Order date</td>
         
-         <td><input type = "date" name = "orderdate" required="required" ></td>
+         <td><input type = "date" name = "orderdate"  />
+         <span id="orderdatelocation"style="color: red; font-size: 20px"></span>
+         </td>
          </tr>
 
 
@@ -137,4 +164,3 @@ li a:hover:not(.active) {
 
 </body>
 </html>
-
