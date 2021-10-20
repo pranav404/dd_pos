@@ -61,6 +61,69 @@ li a:hover:not(.active) {
 	background-size: cover;
 }
 </style>
+<script type="text/javascript">
+		function validate() {
+			var orderdate = document.g1.orderdate.value;
+			var street = document.g1.street.value;
+			var mobileno = document.g1.mobileno.value;
+			var city = document.g1.city.value;
+			var state = document.g1.state.value;
+			var pincode = document.g1.pincode.value;
+			var s = false;
+			if (orderdate == "") {
+				document.getElementById("orderdatelocation").innerHTML = "Please enter the order date";
+				s = false;
+				return s;
+			} else {
+				document.getElementById("orderdatelocation").innerHTML = "";
+				s = true;
+			}
+			if (street == "") {
+				document.getElementById("streetlocation").innerHTML = "Please enter the Street";
+				s = false;
+				return s;
+			} else {
+				document.getElementById("streetlocation").innerHTML = "";
+				s = true;
+			}
+			
+			if (city == "") {
+				document.getElementById("citylocation").innerHTML = "Please enter the City";
+				s = false;
+				return s;
+			} else {
+				document.getElementById("citylocation").innerHTML = "";
+				s = true;
+			}
+			if (state == "") {
+				document.getElementById("statelocation").innerHTML = "Please enter the State";
+				s = false;
+				return s;
+			} else {
+				document.getElementById("statelocation").innerHTML = "";
+				s = true;
+			}
+			if (pincode == "") {
+				document.getElementById("pincodelocation").innerHTML = "Please enter the Pincode";
+				s = false;
+				return s;
+			} else {
+				document.getElementById("pincodelocation").innerHTML = "";
+				
+				s = true;
+			}
+			if (mobileno == "") {
+				document.getElementById("mobilenolocation").innerHTML = "Please enter the mobile number";
+				s = false;
+				return s;
+			} else {
+				document.getElementById("mobilenolocation").innerHTML = "";
+				s = true;
+			}
+			return s;
+		}
+	</script>
+
 </head>
 <body>
 
@@ -97,7 +160,7 @@ li a:hover:not(.active) {
 			
 			<td rowspan=7 width="650" align="center"><h2>Enter your Shipping Address</h2>
 				<table border="2" width="70%" cellpadding="2">
-<form action="ordership" method = "post">
+<form name="g1" action="ordership" method = "post" onsubmit="return validate()">
 <table>
   
   
@@ -109,16 +172,18 @@ li a:hover:not(.active) {
      <td><b>Street: </b></td>
 
      <td><input type= "text" name="street"  placeholder="Street"
-							required style="width: 200; height: 30" /> </td>
+							 /> 
+							 <span id="streetlocation"style="color: red; font-size: 20px"></span></td>
 							
 
      </tr>
      
      <tr>
-     <td><b>Orderdate: </b></td>
+     <td><b>Order date: </b></td>
 
      <td><input type= "date" name="orderdate"
-							required style="width: 200; height: 30" /> </td>
+							  /> 
+							 <span id="orderdatelocation"style="color: red; font-size: 20px"></span></td>
 							
 
      </tr>
@@ -128,7 +193,8 @@ li a:hover:not(.active) {
      <td><b>City:</b> </td>
 
      <td><input type= "text" name="city"  placeholder="City"
-							required style="width: 200; height: 30" /> </td>
+							 />
+							 <span id="citylocation"style="color: red; font-size: 20px"></span> </td>
 							
 
      </tr>
@@ -137,7 +203,8 @@ li a:hover:not(.active) {
      <td><b>State:</b> </td>
 
      <td><input type= "text" name="state"  placeholder="State"
-							required style="width: 200; height: 30" /> </td>
+							  />
+							<span id="statelocation"style="color: red; font-size: 20px"></span> </td>
 							
 
      </tr>
@@ -146,14 +213,16 @@ li a:hover:not(.active) {
      <td><b>PinCode: </b></td>
 
      <td><input type= "text" name="pincode"  placeholder="Pincode"
-							required style="width: 200; height: 30" /> </td>
+							 />
+							<span id="pincodelocation"style="color: red; font-size: 20px"></span> </td>
      </tr>
      
       <tr>
      <td><b>MobileNo: </b></td>
 
      <td><input type= "text" name="mobileno"  placeholder="MobileNo"
-							required style="width: 200; height: 30" /> </td>
+							 />
+							<span id="mobilenolocation"style="color: red; font-size: 20px"></span> </td>
      </tr>
      
 <tr><td><input type ="submit" value="Proceed Pay" align="center"> </td></tr>
@@ -170,3 +239,4 @@ li a:hover:not(.active) {
 
 </body>
 </html>
+
