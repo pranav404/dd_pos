@@ -81,36 +81,42 @@ li a:hover:not(.active) {
 				document.getElementById("namelocation").innerHTML = "Please enter the your name";
 				s = false;
 			} else {
+				document.getElementById("namelocation").innerHTML = "";
 				s = true;
 			}
 			if (Street == "") {
 				document.getElementById("Streetlocation").innerHTML = "Please enter the Street";
 				s = false;
 			} else {
+				document.getElementById("Streetlocation").innerHTML = "";
 				s = true;
 			}
 			if (mobileNo == "") {
 				document.getElementById("mobileNolocation").innerHTML = "Please enter the mobileNo";
 				s = false;
 			} else {
+				document.getElementById("mobileNolocation").innerHTML = "";
 				s = true;
 			}
 			if (City == "") {
 				document.getElementById("Citylocation").innerHTML = "Please enter the City";
 				s = false;
 			} else {
+				document.getElementById("Citylocation").innerHTML = "";
 				s = true;
 			}
 			if (State == "") {
 				document.getElementById("Statelocation").innerHTML = "Please enter the State";
 				s = false;
 			} else {
+				document.getElementById("Statelocation").innerHTML = "";
 				s = true;
 			}
 			if (Pincode == "") {
 				document.getElementById("Pincodelocation").innerHTML = "Please enter the Pincode";
 				s = false;
 			} else {
+				document.getElementById("Pincodelocation").innerHTML = "";
 				s = true;
 			}
 			return s;
