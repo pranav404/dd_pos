@@ -3,7 +3,6 @@ package com.dd_pos.bean;
 import javax.validation.constraints.NotNull;
 
 public class FoodBean {
-	@NotNull (message="This is required field ")
 	private String Foodid,Name,Type,Foodsize,Quantity,Price;
 
 

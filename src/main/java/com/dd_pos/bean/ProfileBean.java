@@ -6,9 +6,9 @@ import javax.validation.constraints.NotNull;
 
 public class ProfileBean {
 
-	@NotNull (message="This is required field ")
+
 	private String userID,firstName,lastName,Gender,Street,Location,City,State,mobileNo,emailID,Password;
-	@NotNull (message="This is required field ")
+
     private Date dateOfBirth;
 	private String Pincode;
     

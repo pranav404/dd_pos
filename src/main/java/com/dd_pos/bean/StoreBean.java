@@ -3,7 +3,6 @@ package com.dd_pos.bean;
 import javax.validation.constraints.NotNull;
 
 public class StoreBean {
-	@NotNull (message="This is required field ")
 	private String storeID,Name,Street,mobileNo,City,State;
 	private String Pincode;
 

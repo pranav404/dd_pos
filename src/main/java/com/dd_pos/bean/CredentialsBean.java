@@ -4,9 +4,9 @@ import javax.validation.constraints.NotNull;
 
 public class CredentialsBean 
 {
-	@NotNull (message="This is required field ")
+
 	private String userID;
-	@NotNull (message="This is required field ")
+
 	private String Password;
 
 	private String userType;
