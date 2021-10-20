@@ -286,7 +286,7 @@ public class controller {
 		}
 		store storeservice = new store();
 		storeservice.editstore(sb, db);
-		return "redirect:viewmodpizza";
+		return "redirect:/viewmodpizza";
 	}
 	//delete pizza store
 	@RequestMapping("/deletepizza/{storeID}")
@@ -302,7 +302,7 @@ public class controller {
 		}
 		store storeservices = new store();
 		storeservices.deletestore(storeID, db);
-		return "redirect:Adddelpizza";
+		return "redirect:/Adddelpizza";
 	}
 	//Adding or deleting food details
 	@RequestMapping("/Adddelfood")
