@@ -81,6 +81,8 @@ document.getElementById("namelocation").innerHTML=
 "Please enter the your name";  
 s=false;
 }else{ 
+	document.getElementById("namelocation").innerHTML=  
+		""; 
 s=true;
 }
 if(type==""){  
@@ -88,6 +90,8 @@ if(type==""){
 	"Please enter the type";  
 	s=false;
 	}else{ 
+		document.getElementById("typelocation").innerHTML=  
+			""; 
 	s=true;
 	}
 if(quantity==""){  
@@ -95,6 +99,8 @@ if(quantity==""){
 	"Please enter the quantity";  
 	s=false;
 	}else{ 
+		document.getElementById("quantitylocation").innerHTML=  
+			"";
 	s=true;
 	}
 if(size==""){  
@@ -102,13 +108,17 @@ if(size==""){
 	"Please enter the size";  
 	s=false;
 	}else{ 
+		document.getElementById("sizelocation").innerHTML=  
+			"";
 	s=true;
 	}
 if(price==""){  
 	document.getElementById("pricelocation").innerHTML=  
 	"Please enter the price";  
 	s=false;
-	}else{ 
+	}else{
+		document.getElementById("pricelocation").innerHTML=  
+			""; 
 	s=true;
 	}
 return s;  
