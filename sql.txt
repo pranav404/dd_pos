@@ -69,3 +69,7 @@ create table POS_TBL_User_Profile(
 
 credit card table------------------------------------------------------------------------------------------------------
 create table pos_tbl_creditcard(creditcardnumber varchar(10),validfrom varchar(10),validto varchar(10), balance double, userid varchar(10));
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------Cart Admin Table----------------------------------------------------------------------------------------------------
+create table pos_tbl_cart_admin(cartid varchar(10), userid varchar(10),foodid varchar(10), type varchar(10),quantity int,cost double,orderdate date);
