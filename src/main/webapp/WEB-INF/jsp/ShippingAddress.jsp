@@ -70,57 +70,52 @@ li a:hover:not(.active) {
 			var state = document.g1.state.value;
 			var pincode = document.g1.pincode.value;
 			var s = false;
+			var s2,s3,s4,s5,s6;
 			if (orderdate == "") {
 				document.getElementById("orderdatelocation").innerHTML = "Please enter the order date";
 				s = false;
-				return s;
 			} else {
 				document.getElementById("orderdatelocation").innerHTML = "";
 				s = true;
 			}
 			if (street == "") {
 				document.getElementById("streetlocation").innerHTML = "Please enter the Street";
-				s = false;
-				return s;
+				s2 = false;
 			} else {
 				document.getElementById("streetlocation").innerHTML = "";
-				s = true;
+				s2 = true;
 			}
 			
 			if (city == "") {
 				document.getElementById("citylocation").innerHTML = "Please enter the City";
-				s = false;
-				return s;
+				s3 = false;
 			} else {
 				document.getElementById("citylocation").innerHTML = "";
-				s = true;
+				s3 = true;
 			}
 			if (state == "") {
 				document.getElementById("statelocation").innerHTML = "Please enter the State";
-				s = false;
-				return s;
+				s4 = false;
 			} else {
 				document.getElementById("statelocation").innerHTML = "";
-				s = true;
+				s4 = true;
 			}
 			if (pincode == "") {
 				document.getElementById("pincodelocation").innerHTML = "Please enter the Pincode";
-				s = false;
-				return s;
+				s5 = false;
 			} else {
 				document.getElementById("pincodelocation").innerHTML = "";
 				
-				s = true;
+				s5 = true;
 			}
 			if (mobileno == "") {
 				document.getElementById("mobilenolocation").innerHTML = "Please enter the mobile number";
-				s = false;
-				return s;
+				s6 = false;
 			} else {
 				document.getElementById("mobilenolocation").innerHTML = "";
-				s = true;
+				s6 = true;
 			}
-			return s;
+			return s&&s2&&s3&&s4&&s5&&s6;
 		}
 	</script>
 

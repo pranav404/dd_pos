@@ -76,6 +76,10 @@ li a:hover:not(.active) {
 			var size = document.f4.Foodsize.value;
 			var price = document.f4.price.value;
 			var s = false;
+			var s2 = false;
+			var s3 = false;
+			var s4 = false;
+			var s5 = false;
 			if (name == "") {
 				document.getElementById("namelocation").innerHTML = "Please enter the your name";
 				s = false;
@@ -85,33 +89,33 @@ li a:hover:not(.active) {
 			}
 			if (type == "") {
 				document.getElementById("typelocation").innerHTML = "Please enter the type";
-				s = false;
+				s2 = false;
 			} else {
 				document.getElementById("typelocation").innerHTML = "";
-				s = true;
+				s2 = true;
 			}
 			if (quantity == "") {
 				document.getElementById("quantitylocation").innerHTML = "Please enter the quantity";
-				s = false;
+				s3 = false;
 			} else {
 				document.getElementById("quantitylocation").innerHTML = "";
-				s = true;
+				s3 = true;
 			}
 			if (size == "") {
 				document.getElementById("sizelocation").innerHTML = "Please enter the size";
-				s = false;
+				s4 = false;
 			} else {
 				document.getElementById("sizelocation").innerHTML = "";
-				s = true;
+				s4 = true;
 			}
 			if (price == "") {
 				document.getElementById("pricelocation").innerHTML = "Please enter the price";
-				s = false;
+				s5 = false;
 			} else {
 				document.getElementById("pricelocation").innerHTML = "";
-				s = true;
+				s5 = true;
 			}
-			return s;
+			return s&&s2&&s3&&s4&&s5;
 		}
 	</script>
 </head>

@@ -37,19 +37,22 @@
 			var username = document.f8.username.value;
 			var password = document.f8.password.value;
 			var s = false;
+			var s2 = false;
 			if (username == "") {
 				document.getElementById("usernamelocation").innerHTML = "Please enter the your username";
 				s = false;
 			} else {
+				document.getElementById("usernamelocation").innerHTML = "";
 				s = true;
 			}
 			if (password == "") {
 				document.getElementById("passwordlocation").innerHTML = "Please enter the password";
-				s = false;
+				s2 = false;
 			} else {
-				s = true;
+				document.getElementById("passwordlocation").innerHTML = "";
+				s2 = true;
 			}
-			return s;
+			return s&&s2;
 		}
 	</script>
 </head>

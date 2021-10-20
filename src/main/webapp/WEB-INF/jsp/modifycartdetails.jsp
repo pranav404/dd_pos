@@ -103,6 +103,7 @@ li a:hover:not(.active) {
 			var orderdate = document.c3.orderdate.value;
 			
 			var s = false;
+			var s2 = false;
 			if (quantity == "" || quantity == "0") {
 				document.getElementById("quantitylocation").innerHTML = "Please enter the quantity";
 				s = false;
@@ -112,12 +113,12 @@ li a:hover:not(.active) {
 			}
 			if (orderdate == "") {
 				document.getElementById("orderdatelocation").innerHTML = "Please enter the orderdate";
-				s = false;
+				s2 = false;
 			} else {
 				document.getElementById("orderdatelocation").innerHTML = "";
-				s = true;
+				s2 = true;
 			}
-			return s;
+			return s&&s2;
 		}
 	</script>
 	

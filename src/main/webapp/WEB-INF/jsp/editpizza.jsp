@@ -77,6 +77,11 @@ var City=document.f3.City.value;
 var State=document.f3.State.value;
 var Pincode=document.f3.Pincode.value;
 var s=false;  
+var s2=false;
+var s3=false;
+var s4=false;
+var s5=false;
+var s6=false;
 if(name==""){  
 document.getElementById("namelocation").innerHTML=  
 "Please enter the your name";  
@@ -89,49 +94,49 @@ s=true;
 if(Street==""){  
 	document.getElementById("Streetlocation").innerHTML=  
 	"Please enter the Street";  
-	s=false;
+	s2=false;
 	}else{
 		document.getElementById("Streetlocation").innerHTML=  
 			"";
-	s=true;
+	s2=true;
 	}
 if(mobileNo==""){  
 	document.getElementById("mobileNolocation").innerHTML=  
 	"Please enter the mobileNo";  
-	s=false;
+	s3=false;
 	}else{
 		document.getElementById("mobileNolocation").innerHTML=  
 			"";  
-	s=true;
+	s3=true;
 	}
 if(City==""){  
 	document.getElementById("Citylocation").innerHTML=  
 	"Please enter the City";  
-	s=false;
+	s4=false;
 	}else{ 
 		document.getElementById("Citylocation").innerHTML=  
 			"";
-	s=true;
+	s4=true;
 	}
 if(State==""){  
 	document.getElementById("Statelocation").innerHTML=  
 	"Please enter the State";  
-	s=false;
+	s5=false;
 	}else{ 
 		document.getElementById("Statelocation").innerHTML=  
 			""; 
-	s=true;
+	s5=true;
 	}
 if(Pincode==""){  
 	document.getElementById("Pincodelocation").innerHTML=  
 	"Please enter the Pincode";  
-	s=false;
+	s6=false;
 	}else{ 
 		document.getElementById("Pincodelocation").innerHTML=  
 			""; 
-	s=true;
+	s6=true;
 	}
-return s;  
+return s&&s2&&s3&&s4&&s5&&s6;  
 }  
 </script>
 </head>

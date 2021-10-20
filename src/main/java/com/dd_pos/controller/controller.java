@@ -234,7 +234,7 @@ public class controller {
 		}
 		store storeservice = new store();
 		storeservice.addStore(sb, db);
-		return "redirect:Adddelpizza";
+		return "redirect:/Adddelpizza";
 	}
 	//viewmodifypizza
 	@RequestMapping("/viewmodpizza")
@@ -351,7 +351,7 @@ public class controller {
 		}
 		food foodservice = new food();
 		foodservice.addFood(fb, db);
-		return "redirect:Adddelfood";
+		return "redirect:/Adddelfood";
 	}
 	//viewmodifyfood
 	@RequestMapping("/viewmodfood")
@@ -402,7 +402,7 @@ public class controller {
 		}
 		food foodservice = new food();
 		foodservice.editfood(sb, db);
-		return "redirect:viewmodfood";
+		return "redirect:/viewmodfood";
 	}
 	//delete food
 	@RequestMapping("/deletefood/{Foodid}")

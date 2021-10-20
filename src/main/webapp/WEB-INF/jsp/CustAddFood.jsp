@@ -102,21 +102,22 @@ li a:hover:not(.active) {
 			var orderdate = document.c1.orderdate.value;
 			
 			var s = false;
+			var s2 = false;
 			if (quantity == "" || quantity == "0") {
 				document.getElementById("quantitylocation").innerHTML = "Please enter the quantity";
 				s = false;
-				return s;
 			} else {
+				document.getElementById("quantitylocation").innerHTML = "";
 				s = true;
 			}
-			if (orderdate == "" ) {
+			if (orderdate == "") {
 				document.getElementById("orderdatelocation").innerHTML = "Please enter the orderdate";
-				s = false;
-				return s;
+				s2 = false;
 			} else {
-				s = true;
+				document.getElementById("orderdatelocation").innerHTML = "";
+				s2 = true;
 			}
-			return s;
+			return s&&s2;
 		}
 	</script>
 

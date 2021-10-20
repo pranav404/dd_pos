@@ -74,6 +74,7 @@ li a:hover:not(.active) {
 			
 			
 			var s = false;
+			var s2,s3,s4,s5,s6;
 			if (number == "" ) {
 				document.getElementById("numberlocation").innerHTML = "Please enter the Credit Card Number";
 				s = false;
@@ -83,26 +84,26 @@ li a:hover:not(.active) {
 			}
 			if (validfrom == "") {
 				document.getElementById("validfromlocation").innerHTML = "Validfrom is mandatory";
-				s = false;
+				s2 = false;
 			} else {
 				document.getElementById("validfromlocation").innerHTML = "";
-				s = true;
+				s2 = true;
 			}
 			if (validto == "") {
 				document.getElementById("validtolocation").innerHTML = "Validto is mandatory";
-				s = false;
+				s3 = false;
 			} else {
 				document.getElementById("validtolocation").innerHTML = "";
-				s = true;
+				s3 = true;
 			}
 			if (Balance == "") {
 				document.getElementById("balancelocation").innerHTML = "Please enter the balance";
-				s = false;
+				s4 = false;
 			} else {
 				document.getElementById("balancelocation").innerHTML = "";
-				s = true;
+				s4 = true;
 			}
-			return s;
+			return s&&s2&&s3&&s4;
 		}
 	</script>
 	

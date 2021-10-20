@@ -60,10 +60,7 @@ input[type="password"]:-ms-input-placeholder {
 								register</a>
 						</td>
 					</tr>
-					<tr>
-						<td>Forgot your password? <a href="Forgotpassword">Click
-								here to reset it</a></td>
-					</tr>
+					
 				</tbody>
 
 			</table>
